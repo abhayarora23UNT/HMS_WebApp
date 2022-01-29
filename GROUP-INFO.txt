@@ -12,3 +12,6 @@ Skills: Programming Languages(JAVA,HTML,CSS) and Database(SQL)
 
 Name: Praveen Nakka
 Skills: Programming Languages(Javascript, AngularJS, Angular,HTML,CSS) and MYSQL
+
+Name:Balusu Charishma Naga Sai Sarada
+Skills: Programming Languages(JAVA,PYTHON)
