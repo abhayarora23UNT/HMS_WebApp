@@ -4,3 +4,6 @@ Group Name - UntIgnitors
 Name: Abhay Arora
 Skills: Programming Languages (Javascript,Angular,Html,CSS)
 
+Name: Dheeraj Reddy Aguthu
+Skills: Programming Languages(.Net,Java) and SQLSERVER
+
