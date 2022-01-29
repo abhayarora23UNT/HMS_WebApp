@@ -7,3 +7,5 @@ Skills: Programming Languages (Javascript,Angular,Html,CSS)
 Name: Dheeraj Reddy Aguthu
 Skills: Programming Languages(.Net,Java) and SQLSERVER
 
+Name: Ravi Teja Balaji
+Skiils: Programming Languages(JAVA,HTML,CSS) and Database(SQL)
