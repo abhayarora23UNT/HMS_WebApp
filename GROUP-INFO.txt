@@ -21,3 +21,6 @@ Skills: Programming Languages(JAVA, HTML)
 
 Name: Srikanth Gopi
 Skills: Programming Languages(Java, Python, Angular) and Database(SQL)
+
+Name: Meghana Junnutula
+Skills: Front end (	HTML, CSS, Json, jQuery, MVC) Programming languages (WebAPI, MVC) Back end (C#.Net and ADO.Net) Database (My SQL)
