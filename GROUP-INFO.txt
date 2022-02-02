@@ -2,10 +2,25 @@ Group Name - UntIgnitors
 
 
 Name: Abhay Arora
-Skills: Programming Languages (Javascript,Angular,Html,CSS)
+Skills: Programming Languages/Frameworks (Javascript, Angular, Html-5, CSS, TypeScript, SQL Server, SQLite, Core Java, Ionic 5, Cordova)
 
 Name: Dheeraj Reddy Aguthu
 Skills: Programming Languages(.Net,Java) and SQLSERVER
 
 Name: Ravi Teja Balaji
-Skiils: Programming Languages(JAVA,HTML,CSS) and Database(SQL)
+Skills: Programming Languages(JAVA,HTML,CSS) and Database(SQL)
+
+Name: Praveen Nakka
+Skills: Programming Languages(Javascript, AngularJS, Angular,HTML,CSS) and MYSQL
+
+Name:Balusu Charishma Naga Sai Sarada
+Skills: Programming Languages(JAVA,PYTHON)
+
+Name: Dodda Geetha Krishna
+Skills: Programming Languages(JAVA, HTML)
+
+Name: Srikanth Gopi
+Skills: Programming Languages(Java, Python, Angular) and Database(SQL)
+
+Name: Meghana Junnutula
+Skills: Front end (	HTML, CSS, Json, jQuery, MVC) Programming languages (WebAPI, MVC) Back end (C#.Net and ADO.Net) Database (My SQL)
