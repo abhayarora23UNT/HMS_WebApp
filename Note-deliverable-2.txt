@@ -2,7 +2,7 @@ Deliverables Locations
 
 Directory\Folder - HMS\Deliverables
 
-Deliverable 1 - HMS\Deliverables\Deliverable1
+Deliverable 2 - HMS\Deliverables\Deliverable2
 
 MOM Locations - HMS\MOM
 
