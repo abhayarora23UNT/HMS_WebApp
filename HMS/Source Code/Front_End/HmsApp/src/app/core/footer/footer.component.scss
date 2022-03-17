@@ -1,0 +1,7 @@
+@import '../../../assets/styles/variable.scss';
+@import '../../../assets/styles/mixin.scss';
+
+.footer-wrapper {
+    background: $footer-bg;
+    color: $txt-white
+}
