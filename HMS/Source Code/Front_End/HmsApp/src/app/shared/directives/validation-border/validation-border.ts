@@ -26,8 +26,11 @@ export class ValidationBorderDirective {
     let element = (this.ngControl.control as any).nativeElement;
     element = this.el.nativeElement;
     if (element != null) {
-        const borderStyle = '1px solid ' + this.colors[this.ngControl.status];
-        element.style.setProperty('border', this.elementState ? borderStyle : null, 'important');
+        const status=this.ngControl.status;
+        if(status){
+          const borderStyle = '1px solid ' + this.colors[status];
+          element.style.setProperty('border', this.elementState ? borderStyle : null, 'important');
+        }
     }
     return true;
   }
@@ -42,7 +45,7 @@ export class ValidationBorderDirective {
   /**
    * Desc: Function to update value for isSubmitted variable
    */
-  isSubmit(val) {
+  isSubmit(val:any) {
     ValidationBorderDirective.isSubmitted = val;
   }
 }

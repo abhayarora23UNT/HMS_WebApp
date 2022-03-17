@@ -14,7 +14,7 @@ export class NumericWithExponentialDirective {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.allowNumericExponential(event);
   }
 
@@ -22,7 +22,7 @@ export class NumericWithExponentialDirective {
    * Function which only allow numeric characters with exponential.
    * @param:event
    */
-  allowNumericExponential(event) {
+  allowNumericExponential(event : any) {
     if (event.target.value) {
       const regExp = new RegExp('^[0-9eE+-]+$');
       const inputChar = event.target.value;
@@ -37,7 +37,10 @@ export class NumericWithExponentialDirective {
    * @param:fieldValue
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control = this.ngControl.control 
+		if(control){
+		 control.patchValue(fieldValue);
+		}
   }
 
 }

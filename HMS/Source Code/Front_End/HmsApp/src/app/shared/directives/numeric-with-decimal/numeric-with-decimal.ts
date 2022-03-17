@@ -14,7 +14,7 @@ export class NumericWithDecimalDirective {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.allowNumericCharacters(event);
   }
 
@@ -22,7 +22,7 @@ export class NumericWithDecimalDirective {
    * Function which only allow numeric characters.
    * @param:event
    */
-  allowNumericCharacters(event) {
+  allowNumericCharacters(event : any) {
     if (event.target.value) {
       const regExp = new RegExp('^[0-9]+\.?[0-9]*$');
       const inputChar = event.target.value;
@@ -37,7 +37,10 @@ export class NumericWithDecimalDirective {
    * @param:fieldValue
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control = this.ngControl.control 
+		if(control){
+		 control.patchValue(fieldValue);
+		}
   }
 
 }

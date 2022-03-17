@@ -11,7 +11,7 @@
         height: 80px;
     }
     .logo {
-        @include bgImage($image-path, 'hms-logo.png', $height: 60px, $position: left);
+        @include bgImage($image-path, 'hms_logo.svg', $height: 60px, $position: left);
         .tks {
             position: absolute;
             left: 98px;

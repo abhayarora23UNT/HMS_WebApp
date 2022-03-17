@@ -14,7 +14,7 @@ export class OnlyAlphabetsDirective {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.allowAlphabetCharcters(event);
   }
 
@@ -22,7 +22,7 @@ export class OnlyAlphabetsDirective {
    * Description:Function which only allows alphabets in the input.
    * @param:event
    */
-  allowAlphabetCharcters(event) {
+  allowAlphabetCharcters(event : any) {
     const regExp = new RegExp('^[A-Za-z ]+$');
     const inputChar = event.target.value;
     if (!regExp.test(inputChar)) {
@@ -35,7 +35,10 @@ export class OnlyAlphabetsDirective {
    * @param:fieldValue
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control=this.ngControl.control;
+    if(control){
+      control.patchValue(fieldValue);  
+    }
   }
 
 }

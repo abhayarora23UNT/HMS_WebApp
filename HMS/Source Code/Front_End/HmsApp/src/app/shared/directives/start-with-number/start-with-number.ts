@@ -8,7 +8,7 @@ export class StartWithNumberDirective {
 
   constructor(private el: ElementRef) { }
 
-  @HostListener('input', ['$event']) onInputChange(event) {
+  @HostListener('input', ['$event']) onInputChange(event:any) {
     //   debugger;
     const initalValue = this.el.nativeElement.value;
     this.el.nativeElement.value = initalValue.replace(/^[-!#@$%^&*()_+|~=`{}\[\]:";'<>?,.\|a-zA-Z]/, '');
