@@ -38,10 +38,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import {MatFormFieldModule} from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-const MaterialModule : (any[] | Type<any> | ModuleWithProviders<{}>) = [
+const MaterialModule: (any[] | Type<any> | ModuleWithProviders<{}>) = [
   MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule,
   MatCheckboxModule, MatSidenavModule, MatToolbarModule,
 ]
@@ -54,7 +54,7 @@ const MaterialModule : (any[] | Type<any> | ModuleWithProviders<{}>) = [
     //DirectivesModule,
     MaterialModule,
     FlexLayoutModule
-    
+
   ],
   exports: [
     FormsModule,
