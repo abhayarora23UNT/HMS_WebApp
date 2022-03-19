@@ -14,7 +14,7 @@ export class OnlyAlphaNumericDirective {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.allowAlphaNumericCharacters(event);
   }
 
@@ -22,7 +22,7 @@ export class OnlyAlphaNumericDirective {
    * Function which allows only alphanumeric characters in the input.
    * @param:event
    */
-  allowAlphaNumericCharacters(event) {
+  allowAlphaNumericCharacters(event : any) {
     if (event.target.value) {
       const regExp = new RegExp(Constants.RegexPatternAlphaNumeric);
       const inputChar = event.target.value;
@@ -37,6 +37,9 @@ export class OnlyAlphaNumericDirective {
    * @param:fieldValue
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control = this.ngControl.control 
+		if(control){
+		 control.patchValue(fieldValue);
+		}
   }
 }

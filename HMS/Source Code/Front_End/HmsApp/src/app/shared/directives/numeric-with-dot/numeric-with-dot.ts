@@ -14,7 +14,7 @@ export class NumericWithDotDirective {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.allowNumericCharacters(event);
   }
 
@@ -22,7 +22,7 @@ export class NumericWithDotDirective {
    * Function which only allows numeric characters in the input.
    * @param event:target event
    */
-  allowNumericCharacters(event) {
+  allowNumericCharacters(event : any) {
     const regExp = new RegExp('^[0-9.,$]+$');
     const inputChar = event.target.value;
     if (inputChar) {
@@ -43,14 +43,17 @@ export class NumericWithDotDirective {
    * @param fieldValue:input value.
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control = this.ngControl.control 
+		if(control){
+		 control.patchValue(fieldValue);
+		}
   }
 
   /**
    * Function which allows only two charcters after decimal.
    * @param event:target event
    */
-  checkTwoCharacterAfterDecimal(event) {
+  checkTwoCharacterAfterDecimal(event : any) {
     const position = event.target.selectionStart;
     const numberData = (event.target.value.split('.'));
 
@@ -71,7 +74,7 @@ export class NumericWithDotDirective {
    * Function which allows only one character after decimal.
    * @param event:target event
    */
-  checkOneCharacterAfterDecimal(event) {
+  checkOneCharacterAfterDecimal(event : any) {
     const position = event.target.selectionStart;
     const numberData = (event.target.value.split('.'));
     if (numberData.length > 2) {
@@ -92,7 +95,7 @@ export class NumericWithDotDirective {
    * Function which allows only two charcters after decimal.
    * @param event:target event
    */
-  checkThreeCharacterAfterDecimal(event) {
+  checkThreeCharacterAfterDecimal(event : any) {
     const position = event.target.selectionStart;
     const numberData = (event.target.value.split('.'));
     if (numberData.length > 3) {

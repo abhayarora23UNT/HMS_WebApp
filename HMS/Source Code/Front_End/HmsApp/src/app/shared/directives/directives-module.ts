@@ -9,10 +9,8 @@ import { AllowSpecialCharactersDirective } from './allow-special-characters/allo
 import { NumericWithDecimalDirective } from './numeric-with-decimal/numeric-with-decimal';
 import { NumericWithDotDirective } from './numeric-with-dot/numeric-with-dot';
 import { NumericWithCommaDirective } from './numeric-wtih-comma/numeric-with-comma';
-import { PopupAnchorDirective } from './kendo-pop-up/popup.anchor-target.directive';
 import { FormatDecimalDirective } from './format-decimal/format-decimal.directive';
 import { ValidationBackgroundDirective } from './validation-background/validation-background';
-import { CurrencyInputDirective } from './currency-input/currency-input.directive';
 import { TwoDigitDecimaNumberDirective } from './only-number-with-decimal/only-number-with-decimal';
 import { StartWithNumberDirective } from './start-with-number/start-with-number';
 import { NumericWithExponentialDirective } from './numeric-with-exponential/numeric-with-exponential';
@@ -30,10 +28,8 @@ import { ValidationBorderDirective } from './validation-border/validation-border
         NumericWithDecimalDirective,
         NumericWithDotDirective,
         NumericWithCommaDirective,
-        PopupAnchorDirective,
         FormatDecimalDirective,
         ValidationBackgroundDirective,
-        CurrencyInputDirective,
         TwoDigitDecimaNumberDirective,
         StartWithNumberDirective,
         NumericWithExponentialDirective,
@@ -49,10 +45,8 @@ import { ValidationBorderDirective } from './validation-border/validation-border
         NumericWithDecimalDirective,
         NumericWithDotDirective,
         NumericWithCommaDirective,
-        PopupAnchorDirective,
         FormatDecimalDirective,
         ValidationBackgroundDirective,
-        CurrencyInputDirective,
         TwoDigitDecimaNumberDirective,
         StartWithNumberDirective,
         NumericWithExponentialDirective,

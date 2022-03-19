@@ -9,13 +9,13 @@ import { NgControl } from '@angular/forms';
 })
 export class AllowSpecialCharactersDirective {
 
-  @Input('appSpecialCharacters') regexPattern: string;
+  @Input('appSpecialCharacters') regexPattern: string='';
 
   constructor(private ngControl: NgControl) {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event:any) {
     this.allowSomeSpecialCharacters(event);
   }
 
@@ -23,7 +23,7 @@ export class AllowSpecialCharactersDirective {
    * Function which allow all characters except these special characters ' <>& ' .
    * @param:event
    */
-  allowSomeSpecialCharacters(event) {
+  allowSomeSpecialCharacters(event:any) {
     if (event.target.value) {
       // const regExp = new RegExp('^[^<>&]+$');
       const regExp = new RegExp(this.regexPattern);
@@ -39,7 +39,10 @@ export class AllowSpecialCharactersDirective {
    * @param:fieldValue
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control = this.ngControl.control 
+		if(control){
+		 control.patchValue(fieldValue);
+		}
   }
 
 }

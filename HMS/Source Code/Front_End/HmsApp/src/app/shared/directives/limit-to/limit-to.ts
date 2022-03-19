@@ -10,13 +10,13 @@ import { map } from 'rxjs/operators';
 })
 export class LimitToDirective {
 
-  @Input('appLimitTo') limitTo: number;
+  @Input('appLimitTo') limitTo: number | undefined;
 
   constructor(private ngControl: NgControl) {
   }
 
   @HostListener('keydown', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.limitMaxLength();
   }
 
@@ -25,9 +25,11 @@ export class LimitToDirective {
   */
   limitMaxLength() {
     const elementControl = this.ngControl.control;
-    elementControl.valueChanges
+    if(elementControl){
+      elementControl.valueChanges
       .pipe(map(v => (v || '').slice(0, this.limitTo)))
       .subscribe(v => elementControl.setValue(v, { emitEvent: false }));
+    }
   }
 
 }

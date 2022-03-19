@@ -8,6 +8,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { AuthHeaderInterceptor } from './core/interceptors/auth-header-interceptor';
 import { HMSErrorHandler } from './core/interceptors/hms-error-handler';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: HMSErrorHandler },

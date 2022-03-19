@@ -14,7 +14,7 @@ export class NumericWithCommaDirective {
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event) {
+  onKeyUp(event : any) {
     this.allowNumericCharacters(event);
   }
 
@@ -22,7 +22,7 @@ export class NumericWithCommaDirective {
    * Function which only allows numeric characters in the input.
    * @param event:target event
    */
-  allowNumericCharacters(event) {
+  allowNumericCharacters(event : any) {
     const regExp = new RegExp('^[0-9.,]+$');
     const inputChar = event.target.value;
     if (inputChar) {
@@ -38,7 +38,10 @@ export class NumericWithCommaDirective {
    * @param fieldValue:input value
    */
   updateInputField(fieldValue: string) {
-    this.ngControl.control.patchValue(fieldValue);
+    const control = this.ngControl.control 
+		if(control){
+		 control.patchValue(fieldValue);
+		}
   }
 
 
