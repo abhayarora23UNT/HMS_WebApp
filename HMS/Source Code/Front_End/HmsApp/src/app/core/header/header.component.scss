@@ -2,9 +2,9 @@
 @import '../../../assets/styles/mixin.scss';
 
 .header {
-    position:  fixed;
+    // position:  fixed;
+    height: 100px;
     z-index: 2;
-    height: 120px;
     .inner {
         background: rgb(118,198,67);
         background: linear-gradient(90deg, rgba(118,198,67,1) 0%, rgba(0,83,149,1) 100%);
@@ -19,6 +19,7 @@
             color: white;
             font-size: 20px;
             font-weight: 600;
+            padding-top: 10px;
         }
         .hms-text {
             color: white;

@@ -1,1 +1,43 @@
-<p>registration works!</p>
+
+
+<div class="register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+        <form class="register-form">
+            <mat-card-content>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="Username" required>
+                </mat-form-field>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="Email" required>
+                </mat-form-field>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="First Name" required>
+                </mat-form-field>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="Last Name" required>
+                </mat-form-field>
+
+                <mat-form-field class="field-full-width">
+                    <mat-label>User Role</mat-label>
+                    <mat-select required>
+                        <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="Password" required>
+                </mat-form-field>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="Confirm Password" required>
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-stroked-button color="primary" class="btn-block">Create Account</button>
+            <p class="message"><span class="already-rgtr">Already have an Account?</span>
+                <a class="txt-line head-title" href="#" routerLink="/auth/login">Log In</a>
+            </p>
+        </form>
+    </mat-card>
+</div>
