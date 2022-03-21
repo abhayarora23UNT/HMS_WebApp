@@ -41,12 +41,15 @@ export enum Constants {
 
   DateFormat = 'MM/dd/yyyy',
   TimeFormat = 'hh:mm a',
+
+  DefaultToastTimeout=5000,
 }
 
 export const ModuleConstants = {
   timeDelay: 500,
   exportTime: 5000,
   apiTimeout: 120000,  // 2 min
+  userRoles: [{ key: 'Admin', value: 'Admin' }, { key: 'Doctor', value: 'Doctor' }, { key: 'Patient', value: 'Patient' }, { key: 'Staff', value: 'Staff' }],
 };
 
 

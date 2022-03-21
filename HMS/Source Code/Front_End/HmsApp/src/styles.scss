@@ -2,6 +2,7 @@
 
 @import '../src/assets/styles/variable.scss';
 @import '../src/assets/styles/mixin.scss';
+@import "../node_modules/ngx-toastr/toastr.css";
 
 html, body {
      height: 100%;margin: 0;overflow: hidden;
@@ -131,3 +132,15 @@ body {
   .head-title {
     color: var(--text-link);
   }
+
+.spinner-style{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 9999999
+}
+
+.toast-custom{
+  top: 110px;
+  right: 25px;
+}

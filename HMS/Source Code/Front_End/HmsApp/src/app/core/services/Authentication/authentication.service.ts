@@ -22,7 +22,7 @@ export class AuthenticationService {
      * Function will register new user to system
      * @param requestData payload for register user api
      */
-    registerNewUser(requestData: any): Observable<{}> {
+    registerNewUser(requestData: any): Observable<any> {
         return this.baseHttp.post(this.endpoint.registerUser, requestData)
             .pipe(
                 timeout(ModuleConstants.apiTimeout),

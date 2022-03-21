@@ -5,39 +5,45 @@
         <mat-card-header>
             <mat-card-title>Register</mat-card-title>
         </mat-card-header>
-        <form class="register-form">
+        <form class="register-form" [formGroup]="fgRegister">
             <mat-card-content>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Username" required>
+                    <input matInput placeholder="Username" formControlName="userName" required>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Email" required>
+                    <input matInput placeholder="Email" formControlName="email" required>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="First Name" required>
+                    <input matInput formControlName="firstName" placeholder="First Name" required>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Last Name" required>
+                    <input matInput formControlName="lastName"  placeholder="Last Name" required>
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
                     <mat-label>User Role</mat-label>
-                    <mat-select required>
-                        <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+                    <mat-select formControlName="userRole" required>
+                        <mat-option [value]="roles.value" *ngFor="let roles of userRolesData">{{roles.key}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Password" required>
+                    <input matInput placeholder="Phone No" formControlName="phoneNumber">
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Confirm Password" required>
+                    <input matInput placeholder="Password" formControlName="password" required>
+                </mat-form-field>
+                <mat-form-field class="field-full-width">
+                    <input matInput placeholder="Confirm Password" formControlName="confirmPassword" required>
                 </mat-form-field>
             </mat-card-content>
-            <button mat-stroked-button color="primary" class="btn-block">Create Account</button>
+            <button mat-stroked-button color="primary" class="btn-block" (click)="registerUser()" >Create Account</button>
             <p class="message"><span class="already-rgtr">Already have an Account?</span>
-                <a class="txt-line head-title" href="#" routerLink="/auth/login">Log In</a>
+                <a class="txt-line head-title" href="#" routerLink="/authentication/login">Log In</a>
             </p>
         </form>
     </mat-card>
 </div>
+<section class="spinner-style">
+    <mat-spinner id="matSpinner" [diameter]="50" *ngIf="isDataLoading"></mat-spinner>
+</section>

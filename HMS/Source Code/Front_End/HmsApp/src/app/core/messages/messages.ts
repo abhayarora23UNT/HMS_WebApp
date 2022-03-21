@@ -32,10 +32,7 @@ export enum Messages {
     Logout_Dialog_Button_Cancel = 'Cancel',
     Logout_Confirmation = 'Are you sure you want to logout?',
     Login_Failure_Message = 'Unable to login. Please try again after sometime',
-    Auth_Token_Failure_Message = '<div>Unable to acquire access token. It could be because of your browser settings, please allow cookies by selecting "Allow all cookies" and try again.</div><div>Application will be redirected to Sign-In screen</div>',
-
-    AzureException = 'Root segment cannot have matrix parameters',
-    Required_Fields = 'required field(s):'
+    RegisterUserSuccess='User Registered Successfully'
 }
 
 
