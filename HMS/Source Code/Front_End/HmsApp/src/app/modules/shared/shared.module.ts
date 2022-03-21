@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule, Type } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivesModule } from '../../shared/directives/directives-module';
@@ -40,19 +40,53 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { OverlayModule } from '@angular/cdk/overlay';
+import { PortalModule } from '@angular/cdk/portal';
+import { CdkTreeModule } from '@angular/cdk/tree';
 
-const MaterialModule: (any[] | Type<any> | ModuleWithProviders<{}>) = [
-  MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule,
-  MatCheckboxModule, MatSidenavModule, MatToolbarModule,
-]
+const MaterialModules = [
+  CdkTreeModule,
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatButtonToggleModule,
+  MatTreeModule,
+  OverlayModule,
+  PortalModule,
+  MatBadgeModule,
+  MatGridListModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatTooltipModule
+];
+
 @NgModule({
   declarations: [CustomDatePipe],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    //DirectivesModule,
-    MaterialModule,
+    DirectivesModule,
+    ...MaterialModules,
     FlexLayoutModule
 
   ],
@@ -60,11 +94,12 @@ const MaterialModule: (any[] | Type<any> | ModuleWithProviders<{}>) = [
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    //DirectivesModule,
+    DirectivesModule,
     CustomDatePipe,
-    MaterialModule,
+    ...MaterialModules,
     FlexLayoutModule
   ],
-  entryComponents: []
+  entryComponents: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule { }
