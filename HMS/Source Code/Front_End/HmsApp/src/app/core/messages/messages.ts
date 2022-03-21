@@ -32,7 +32,8 @@ export enum Messages {
     Logout_Dialog_Button_Cancel = 'Cancel',
     Logout_Confirmation = 'Are you sure you want to logout?',
     Login_Failure_Message = 'Unable to login. Please try again after sometime',
-    RegisterUserSuccess='User Registered Successfully'
+    RegisterUserSuccess='User Registered Successfully',
+    Password_Validate_Message='New Password and Confirm New Password should be same',
 }
 
 

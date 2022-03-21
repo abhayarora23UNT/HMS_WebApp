@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class LimitToDirective {
 
-  @Input('appLimitTo') limitTo: number | undefined;
+  @Input('appLimitTo')
+  limitTo!: any;
 
   constructor(private ngControl: NgControl) {
   }

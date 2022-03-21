@@ -59,11 +59,16 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     if (this.fgRegister.status == Constants.FormInvalid) {
       this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
     } else {
+
+      if (this.fgRegister.controls['password'].value != this.fgRegister.controls['confirmPassword'].value) {
+        this.toastService.errorMessage(Messages.Password_Validate_Message);
+      }
       const fgValue = this.fgRegister.value;
       console.log('data is  ' + fgValue);
+        // TODO call API //
       this.callRegisterUserApi(fgValue);
       this.toastService.successMessage(Messages.RegisterUserSuccess);
-      // TODO call API //
+    
     }
   }
 
@@ -73,14 +78,14 @@ export class RegistrationComponent implements OnInit, OnDestroy {
    */
   callRegisterUserApi(respData: any) {
     this.isDataLoading=true;
-    this.authService.registerNewUser(respData)              // ADD project API call
+    this.authService.registerNewUser(respData)              
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
           if (retData.status) {
-
+            this.toastService.successMessage(Messages.RegisterUserSuccess);
           } else {
-
+            this.toastService.errorMessage(retData.message);
           }
           this.isDataLoading = false;
         },

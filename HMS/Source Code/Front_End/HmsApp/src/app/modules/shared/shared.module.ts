@@ -85,7 +85,7 @@ const MaterialModules = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    //DirectivesModule,
+    DirectivesModule,
     ...MaterialModules,
     FlexLayoutModule
 
@@ -94,7 +94,7 @@ const MaterialModules = [
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    //DirectivesModule,
+    DirectivesModule,
     CustomDatePipe,
     ...MaterialModules,
     FlexLayoutModule
