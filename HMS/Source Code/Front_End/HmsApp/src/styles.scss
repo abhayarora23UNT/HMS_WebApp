@@ -130,7 +130,7 @@ body {
     text-decoration: underline;
   }
   .head-title {
-    color: rgb(16, 16, 163);
+    color: var(--text-link);
   }
 
 .spinner-style{
@@ -144,4 +144,3 @@ body {
   top: 110px;
   right: 25px;
 }
-
