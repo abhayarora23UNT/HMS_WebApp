@@ -10,9 +10,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WebApplication4.UtilityClasses;
+using System.Web.Http.Cors;
 
 namespace WebApplication4.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class HospitalManagementController : ApiController
     {
         static string nodatafound = @"{""Message"": ""No data found""}";
