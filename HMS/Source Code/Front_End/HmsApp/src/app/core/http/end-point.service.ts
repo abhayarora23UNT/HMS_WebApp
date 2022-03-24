@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class EndPointService {
 
-  registerUser='Login/CreateLogin/';
- 
+  registerUser='api/Login/CreateLogin';
+  loginUser='api/Login/GetLoginAccess';
 }
 
 
