@@ -17,7 +17,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   fgRegister!: FormGroup;
   private onDestroy$: Subject<void> = new Subject<void>();
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private toastService: ToastMessageService,private router:Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private toastService: ToastMessageService, private router: Router) {
     this.createRegisterFormGroup();
   }
 
@@ -63,10 +63,12 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
       if (this.fgRegister.controls['password'].value != this.fgRegister.controls['confirmPassword'].value) {
         this.toastService.errorMessage(Messages.Password_Validate_Message);
+      } else {
+        const fgValue = this.fgRegister.value;
+        console.log('data is  ' + fgValue);
+        this.callRegisterUserApi(fgValue);
       }
-      const fgValue = this.fgRegister.value;
-      console.log('data is  ' + fgValue);
-      this.callRegisterUserApi(fgValue);
+
     }
   }
 
@@ -75,8 +77,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
    * @param respData 
    */
   callRegisterUserApi(respData: any) {
-    this.isDataLoading=true;
-    this.authService.registerNewUser(respData)              
+    this.isDataLoading = true;
+    this.authService.registerNewUser(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
