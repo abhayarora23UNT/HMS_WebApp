@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/core/services/Authentication/auth
 import { Messages } from 'src/app/core/messages/messages';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 import { Router } from '@angular/router';
+import { StorageProvider } from 'src/app/core/http/storage-service';
 
 
 @Component({
@@ -17,8 +18,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   fgLogin!: FormGroup;
   private onDestroy$: Subject<void> = new Subject<void>();
-  isDataLoading=false;
-  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private toastService: ToastMessageService,private router:Router) {
+  isDataLoading = false;
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticationService, private toastService: ToastMessageService, private router: Router, private storageService: StorageProvider) {
     this.createLoginFormGroup();
   }
 
@@ -64,17 +65,16 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   /**
   * Method to called login user api
-  * @param respData 
+  * @param requestData 
   */
-  callLoginUserApi(respData: any) {
-    this.isDataLoading=true;
-    this.authService.loginExistingUser(respData)
+  callLoginUserApi(requestData: any) {
+    this.isDataLoading = true;
+    this.authService.loginExistingUser(requestData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
           if (retData.status) {
-            this.toastService.successMessage(Messages.RegisterUserSuccess);
-            this.router.navigate(['home']);
+            this.parseResponse(retData,requestData);
           } else {
             this.toastService.errorMessage(retData.message);
           }
@@ -89,6 +89,22 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
         }
       });
+  }
+
+  /**
+   * Method to parse login response
+   * @param retData server response
+   * @param requestData request data
+   */
+  parseResponse(retData: any, requestData: any) {
+    if (retData.data.Table != null && retData.data.Table.length > 0 && retData.data.Table[0].UserRole) {
+      this.storageService.setSessionStorageData('userRole', retData.data.Table[0].UserRole);
+      this.storageService.setSessionStorageData('userName', requestData.Email);
+      this.toastService.successMessage(Messages.RegisterUserSuccess, 3000);
+      this.router.navigate(['home']);
+    } else {
+      this.toastService.errorMessage(Messages.Login_Failure_Message, 3000);
+    }
   }
 
 }

@@ -76,7 +76,8 @@ const MaterialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDialogModule
 ];
 
 @NgModule({
@@ -87,8 +88,7 @@ const MaterialModules = [
     ReactiveFormsModule,
     DirectivesModule,
     ...MaterialModules,
-    FlexLayoutModule
-
+    FlexLayoutModule,
   ],
   exports: [
     FormsModule,
@@ -97,7 +97,7 @@ const MaterialModules = [
     DirectivesModule,
     CustomDatePipe,
     ...MaterialModules,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   entryComponents: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
