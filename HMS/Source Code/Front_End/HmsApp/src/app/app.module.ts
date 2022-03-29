@@ -10,12 +10,16 @@ import { HMSErrorHandler } from './core/interceptors/hms-error-handler';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    MatDialogModule
+    //...MaterialModules,
   ],
   providers: [
     { provide: ErrorHandler, useClass: HMSErrorHandler },
@@ -31,6 +37,9 @@ import { ToastrModule } from 'ngx-toastr';
       useClass: AuthHeaderInterceptor,
       multi: true
     },
+    { provide: MatDialogRef, useValue: {} },
+
+    { provide: MAT_DIALOG_DATA, useValue: {} }
   ],
   bootstrap: [AppComponent],
   

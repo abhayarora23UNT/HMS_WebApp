@@ -14,7 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -43,6 +43,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { CdkTreeModule } from '@angular/cdk/tree';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 const MaterialModules = [
   CdkTreeModule,
@@ -81,7 +82,7 @@ const MaterialModules = [
 ];
 
 @NgModule({
-  declarations: [CustomDatePipe],
+  declarations: [CustomDatePipe, ConfirmDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -99,7 +100,12 @@ const MaterialModules = [
     ...MaterialModules,
     FlexLayoutModule,
   ],
-  entryComponents: [],
+  entryComponents: [ConfirmDialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    // { provide: MatDialogRef, useValue: {} },
+
+    // { provide: MAT_DIALOG_DATA, useValue: {} }
+  ]
 })
 export class SharedModule { }
