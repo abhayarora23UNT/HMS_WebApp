@@ -13,8 +13,8 @@ export class BaseHttpService {
   };
 
   constructor(private httpClient: HttpClient, protected apiConfig: ConfigDataProvider, ) { }
-  baseUrl: string = this.apiConfig.apiEndPoint;
-
+  baseUrl: string = 'http://192.168.254.35:8087/';
+  //baseUrl: string = 'http://localhost:58853/';
   /**
    * Function used for HTTP get
    * @param relativeUrl API endpoint

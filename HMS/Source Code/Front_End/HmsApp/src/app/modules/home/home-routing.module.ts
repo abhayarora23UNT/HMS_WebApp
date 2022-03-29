@@ -6,8 +6,7 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeScreenComponent,
+    path: '', pathMatch: 'full', redirectTo: 'home' 
   },
   {
     path: 'home',

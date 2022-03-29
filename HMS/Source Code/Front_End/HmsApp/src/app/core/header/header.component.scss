@@ -212,3 +212,48 @@ span.font-weight-bold.logout-btn:hover {
 .w-100{
     width:100%
 }
+
+.userName{
+    color: $txt-white;
+    .welcome-btn {
+        min-width: 277px;
+        max-width: 550px;
+        width: auto;
+        color: $txt-white;
+        .version {
+            font-size: 14px;
+        }
+    }
+    .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 0;
+        vertical-align: middle;
+        content: "";
+        border-top: .3em solid;
+        border-right: .3em solid transparent;
+        border-bottom: 0;
+        border-left: .3em solid transparent;
+        position: absolute;
+        top: 12px;
+        right: 5px;
+    }
+    .header-main-box.links-pack {
+        ul {
+            position: absolute;
+            right: 0;
+            top: 44px;
+            width: 150px;
+            padding: 10px 5px;
+            list-style: none;
+            background: $menu-selected-bg;
+            @include border-radius(2px);
+            z-index: 2;
+            li {
+                padding: 3px;
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}

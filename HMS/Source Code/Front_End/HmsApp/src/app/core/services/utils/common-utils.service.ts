@@ -18,9 +18,10 @@ export class CommonUtilsService {
    */
   public extractData(res: any): any {
     if (res !== undefined || res !== null) {
-      return this.getProviderResObj(res.isSuccess, res.isUserConfirmationRequired, res, res.statusMessage);
+      const data=JSON.parse(res);
+      return this.getProviderResObj(data.status, data, data.ErrorMessage);
     } else {
-      return this.getProviderResObj(false, false, res, Messages.Dialog_Message_Error);
+      return this.getProviderResObj(false, res, Messages.Dialog_Message_Error);
     }
   }
 
@@ -31,13 +32,11 @@ export class CommonUtilsService {
    * @param data api data
    * @param message api message
    */
-  public getProviderResObj(status: any, isUserConfirmationRequired: any, data?: any, message?: any): any {
+  public getProviderResObj(status: any, data?: any, message?: any): any {
     const provResponseObj: ProviderResponseModel = new ProviderResponseModel();
     provResponseObj.status = status;
-    provResponseObj.data = data === undefined ? '' : data.data;
+    provResponseObj.data = data === undefined ? '' : data.Dataresult;
     provResponseObj.message = message === undefined ? '' : message;
-    provResponseObj.isUserConfirmationRequired = isUserConfirmationRequired === undefined ? false : isUserConfirmationRequired;
-
     return provResponseObj;
   }
 

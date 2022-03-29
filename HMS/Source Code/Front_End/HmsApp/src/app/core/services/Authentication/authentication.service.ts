@@ -31,4 +31,12 @@ export class AuthenticationService {
             );
     }
 
+    loginExistingUser(requestData:any){
+        return this.baseHttp.post(this.endpoint.loginUser, requestData)
+            .pipe(
+                timeout(ModuleConstants.apiTimeout),
+                map((res) => this.commonUtilsProvider.extractData(res)),
+                catchError((err) => this.commonUtilsProvider.catchError(err))
+            );
+    }
 }

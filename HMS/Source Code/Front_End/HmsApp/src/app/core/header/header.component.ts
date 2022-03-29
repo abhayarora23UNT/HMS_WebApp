@@ -27,7 +27,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   dbServer: any;
   userResponsibility: any;
   isProdEnv = false;
-  constructor(private router: Router, private location: Location, private objCommonUtilsProvider: CommonUtilsService) {
+  userName=null;
+  constructor(private router: Router, private location: Location, private storageService: StorageProvider) {
+   
   }
 
   /**
@@ -44,5 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.onDestroy$.next();
     
   }
+
+  
 
 }
