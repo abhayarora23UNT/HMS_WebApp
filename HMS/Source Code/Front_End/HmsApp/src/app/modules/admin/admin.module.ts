@@ -7,7 +7,7 @@ import { ListAdmissionComponent } from "./admission/list-admission/list-admissio
 import { AdminDashboardComponent } from "./dashboard/admin-dashboard.component";
 import { AddDoctorComponent } from "./doctor/add-doctor/add-doctor.component";
 import { ListDoctorComponent } from "./doctor/list-doctor/list-doctor.component";
-import { AddHospitalBranchComponent } from "./hospital-branch/add-hospital-branch/add-hospital-branch.component";
+import { AddHospitalBranchComponent } from "./hospital-branch/add-hospital-branch/add-hospital-branch-component";
 import { ListHospitalBranchComponent } from "./hospital-branch/list-hospital-branch/list-hospital-branch.component";
 import { AddMedicineComponent } from "./medicine/add-medicine/add-medicine.component";
 import { ListMedicineComponent } from "./medicine/list-medicine/list-medicine.component";
