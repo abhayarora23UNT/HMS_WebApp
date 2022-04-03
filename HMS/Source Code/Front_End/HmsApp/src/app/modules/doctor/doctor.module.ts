@@ -9,6 +9,7 @@ import { DocDashboardComponent } from "./doc-dashboard/doc-dashboard.component";
 import { DoctorRoutingModule } from "./doctor-routing.module";
 import { AddTreatmentComponent } from "./treatment/add-treatment/add-treatment.component";
 import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatment.component";
+import { DocHomeComponent } from './doc-home/doc-home.component';
 
 
 
@@ -23,7 +24,8 @@ import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatmen
        AddTreatmentComponent,
        ListTreatmentComponent,
        AddAppointmentMedicineComponent,
-       ListAppointmentMedicineComponent
+       ListAppointmentMedicineComponent,
+       DocHomeComponent
   ],
   imports: [
     CommonModule,
