@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-add-treatment',
+  selector: 'app-doc-add-treatment',
   templateUrl: './add-treatment.component.html',
   styleUrls: ['./add-treatment.component.scss']
 })

@@ -44,6 +44,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { HospServicesComponent } from 'src/app/shared/components/hosp-services/hosp-services.component';
+import { AboutUsComponent } from 'src/app/shared/components/about-us/about-us.component';
 
 const MaterialModules = [
   CdkTreeModule,
@@ -82,7 +84,7 @@ const MaterialModules = [
 ];
 
 @NgModule({
-  declarations: [CustomDatePipe, ConfirmDialogComponent],
+  declarations: [CustomDatePipe, ConfirmDialogComponent,HospServicesComponent,AboutUsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -100,7 +102,7 @@ const MaterialModules = [
     ...MaterialModules,
     FlexLayoutModule,
   ],
-  entryComponents: [ConfirmDialogComponent],
+  entryComponents: [ConfirmDialogComponent,HospServicesComponent,AboutUsComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     // { provide: MatDialogRef, useValue: {} },
@@ -108,4 +110,6 @@ const MaterialModules = [
     // { provide: MAT_DIALOG_DATA, useValue: {} }
   ]
 })
-export class SharedModule { }
+export class SharedModule { 
+  
+}

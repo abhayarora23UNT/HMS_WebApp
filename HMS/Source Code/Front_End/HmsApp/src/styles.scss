@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "../src/assets/styles/all.min.css";
 @import '../src/assets/styles/variable.scss';
 @import '../src/assets/styles/mixin.scss';
 @import "../node_modules/ngx-toastr/toastr.css";
@@ -23,8 +24,8 @@ body {
 }
 
 .main {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 2px;
+  padding-bottom: 1px;
 }
 
 .app-content-wrapper {
@@ -157,4 +158,35 @@ body {
 .toast-custom{
   top: 80px;
   right: 25px;
+}
+
+.center-txt{
+  text-align: center;
+  justify-content: center;
+}
+
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 200px;
+  background-color: #752525;
+}
+
+.header-menu{
+  justify-content: end;
+  height: 45px;
+  button{
+      background: #20727E;
+      color: white;
+      padding: 3px 10px;
+      margin-left: 5px;
+      font-weight:500;
+      font-size: 11px;
+      border-radius: 2px !important;
+      height: 40px;
+  }
 }

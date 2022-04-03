@@ -21,7 +21,6 @@ export class AppComponent {
   routerInterceptor() {
     this.router.events.subscribe({
       next: (event: any) => {
-        console.log(event);
         if (event instanceof NavigationEnd ) {
           const path=this.location.path();
           this.eventService.sendMessage(path);
