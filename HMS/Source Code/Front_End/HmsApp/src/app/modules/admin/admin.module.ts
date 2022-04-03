@@ -17,6 +17,7 @@ import { AddStaffComponent } from "./staff/add-staff/add-staff.component";
 import { ListStaffComponent } from "./staff/list-staff/list-staff.component";
 import { AddTreatmentComponent } from "./treatment/add-treatment/add-treatment.component";
 import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatment.component";
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatmen
     AddStaffComponent,
     ListStaffComponent,
     AddTreatmentComponent,
-    ListTreatmentComponent
+    ListTreatmentComponent,
+    AdminHomeComponent
   ],
   imports: [
     CommonModule,

@@ -17,13 +17,15 @@ export class DocDashboardComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   opened = true;
-  isHomeSection = false;
 
   ngOnInit(): void {
 
 
   }
 
+  /**
+   * Method to open services modal
+   */
   openServicesModal(){
     const dialogRef = this.dialog.open(HospServicesComponent, {
       maxWidth: "85%",
@@ -37,6 +39,9 @@ export class DocDashboardComponent implements OnInit {
     });
   }
 
+  /**
+   * Method to open About Us Modal
+   */
   openAboutUsModal(){
     const dialogRef = this.dialog.open(AboutUsComponent, {
       maxWidth: "85%",
