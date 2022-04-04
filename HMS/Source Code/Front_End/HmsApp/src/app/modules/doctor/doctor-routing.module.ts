@@ -5,6 +5,7 @@ import { ListTreatmentComponent } from '../admin/treatment/list-treatment/list-t
 import { AddAppointmentMedicineComponent } from './appointment-medicine/add-appointment-medicine/add-appointment-medicine.component';
 import { ListAppointmentMedicineComponent } from './appointment-medicine/list-appointment-medicine/list-appointment-medicine.component';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
+import { EditAppointmentComponent } from './appointment/edit-appointment/edit-appointment.component';
 import { ListAppointmentComponent } from './appointment/list-appointment/list-appointment.component';
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { DocHomeComponent } from './doc-home/doc-home.component';
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'addAppointment',
         component: AddAppointmentComponent,
+      },
+      {
+        path: 'editAppointment',
+        component: EditAppointmentComponent,
       },
       {
         path: 'listAppointment',
