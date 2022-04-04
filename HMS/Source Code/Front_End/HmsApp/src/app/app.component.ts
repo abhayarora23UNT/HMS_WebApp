@@ -30,7 +30,7 @@ export class AppComponent {
         console.log(err);
       },
       complete: () => {
-        console.log('complete');
+       
       }
     } );
 

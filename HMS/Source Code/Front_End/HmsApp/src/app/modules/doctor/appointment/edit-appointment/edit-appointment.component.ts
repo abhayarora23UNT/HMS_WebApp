@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
@@ -10,22 +10,31 @@ import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.ser
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 
 @Component({
-  selector: 'app-doc-add-appointment',
-  templateUrl: './add-appointment.component.html',
-  styleUrls: ['./add-appointment.component.scss']
+  selector: 'app-doc-edit-appointment',
+  templateUrl: './edit-appointment.component.html',
+  styleUrls: ['./edit-appointment.component.scss']
 })
-export class AddAppointmentComponent implements OnInit, OnDestroy {
+export class EditAppointmentComponent implements OnInit, OnDestroy {
 
-  fgAddAppointment!: FormGroup;
+  fgEditAppointment!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
-  hospitalIdList: any = []; // dropdown list for hospital Id
-  doctorIdList: any = [];   // dropdown list for doctor Id
-  patientIdList: any = [];  // dropdown list for patient Id
+  hospitalIdList: any = [];
+  doctorIdList: any = [];
+  patientIdList: any = [];
 
+  appointmentData: any;
   constructor(private formBuilder: FormBuilder, private appointmentService: DoctorAppointmentService, private toastService: ToastMessageService,
-    private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService) {
+    private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService, private route: ActivatedRoute) {
     this.createFormGroup();
+
+    // get existing appointment data from routing params //
+    this.route.queryParams.subscribe(params => {
+      if (params && params['appointmentData']) {
+        this.appointmentData = JSON.parse(params['appointmentData']);
+      }
+    });
+
   }
 
   /**
@@ -35,6 +44,8 @@ export class AddAppointmentComponent implements OnInit, OnDestroy {
     this.getDoctorsList();
     this.getHospitalBranchList();
     this.getPatientsList();
+    this.bindFormData(this.appointmentData);
+
   }
 
   /**
@@ -49,7 +60,7 @@ export class AddAppointmentComponent implements OnInit, OnDestroy {
    * Method to create form group
    */
   createFormGroup() {
-    this.fgAddAppointment = this.formBuilder.group({
+    this.fgEditAppointment = this.formBuilder.group({
       hospitalId: ['', Validators.required],
       doctorId: ['', Validators.required],
       patientId: ['', Validators.required],
@@ -59,28 +70,40 @@ export class AddAppointmentComponent implements OnInit, OnDestroy {
     });
   }
 
+
   /**
-   * Method to create appointment
+   * Method to bind form data
+   * @param formData 
    */
-  createAppointment() {
-    if (this.fgAddAppointment.status == Constants.FormInvalid) {
-      this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
-    } else {
-      const fgValue = JSON.parse(JSON.stringify(this.fgAddAppointment.value));
-      console.log('data is  ' + fgValue);
-      fgValue.fee = +fgValue.fee
-      fgValue.appt_Date = this.commonUtilsService.convertDateStringToYyyyMmDd(fgValue.appt_Date);
-      this.callCreateAppointmentApi(fgValue);
+  bindFormData(formData: any) {
+    if (formData) {
+      formData.appt_Date = new Date(formData.appt_Date);
+      this.fgEditAppointment.patchValue(this.appointmentData);
     }
   }
 
   /**
-    * Method to called create appointment api
+   * Method to edit appointment
+   */
+  editAppointment() {
+    if (this.fgEditAppointment.status == Constants.FormInvalid) {
+      this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
+    } else {
+      const fgValue = JSON.parse(JSON.stringify(this.fgEditAppointment.value));
+      console.log('data is  ' + fgValue);
+      fgValue.fee = +fgValue.fee;
+      fgValue.appt_Date = this.commonUtilsService.convertDateStringToYyyyMmDd(fgValue.appt_Date);
+      this.callEditAppointmentApi(fgValue);
+    }
+  }
+
+  /**
+    * Method to called update appointment api
     * @param respData 
     */
-  callCreateAppointmentApi(respData: any) {
+  callEditAppointmentApi(respData: any) {
     this.isDataLoading = true;
-    this.appointmentService.createDocAppointment(respData)
+    this.appointmentService.editDocAppointment(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
@@ -97,21 +120,21 @@ export class AddAppointmentComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
         },
         complete: () => {
-         
+
           this.isDataLoading = false;
         }
       });
   }
 
   /**
-   * Method to navigate to appointment list screen
+   * Method to navigate to appointment list
    */
   navigateToListAppointmentScreen() {
     this.router.navigate(['doctor/dashboard/listAppointment']);
   }
 
   /**
-   * Method called to get hospital branch List
+   * Function called to get hospital branch List
    */
   getHospitalBranchList() {
     this.lookupService.getHospitalBranchList()

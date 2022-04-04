@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { StorageProvider } from 'src/app/core/http/storage-service';
 import { Messages } from 'src/app/core/messages/messages';
 import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
@@ -17,20 +16,31 @@ import { DoctorAppointment } from 'src/app/shared/models/doctor/doctor-appointme
 export class ListAppointmentComponent implements OnInit, OnDestroy {
 
 
-  appointmentColumns: string[] = ['doctorId', 'patientId', 'appt_Date', 'fee', 'action'];
-  isDataLoading = false;
+  appointmentColumns: string[] = ['doctorId', 'patientId', 'appt_Date', 'fee', 'action'];  // table columns
+  isDataLoading = false; // flag to hide/show loader
   private onDestroy$: Subject<void> = new Subject<void>();
   dataSource: any = [];
-  constructor(private doctorService: DoctorAppointmentService, private toastService: ToastMessageService, private router: Router, private storageService: StorageProvider, private dialog: MatDialog) { }
+  constructor(private doctorService: DoctorAppointmentService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
 
+  }
+
+  /**
+   * Method called on page init
+   */
   ngOnInit(): void {
     this.getDocAppointmentList();
   }
 
+  /**
+   * Method called on page destroy
+   */
   ngOnDestroy(): void {
     this.onDestroy$.next();
   }
 
+  /**
+   * Method to get appointment list
+   */
   getDocAppointmentList() {
     this.isDataLoading = true;
     this.dataSource = [];
@@ -42,9 +52,6 @@ export class ListAppointmentComponent implements OnInit, OnDestroy {
             if (retData.data.Table != null && retData.data.Table.length > 0) {
               this.parseListResponse(retData);
             }
-            // else {
-            //   this.toastService.infoMessage(Messages.No_Records_Message);
-            // }
           } else {
             this.toastService.errorMessage(retData.message);
           }
@@ -55,12 +62,15 @@ export class ListAppointmentComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
         },
         complete: () => {
-          console.log('complete');
           this.isDataLoading = false;
         }
       });
   }
 
+  /**
+   * Method to parse appointment list response
+   * @param retData 
+   */
   parseListResponse(retData: any) {
     const respObjLst = [];
     for (const row of retData.data.Table) {
@@ -77,18 +87,33 @@ export class ListAppointmentComponent implements OnInit, OnDestroy {
       respObjLst.push(respObj);
     }
     this.dataSource = respObjLst;
-    console.log(this.dataSource);
   }
 
+  /**
+   * Method to navigate to edit appointment page
+   * @param event 
+   */
   editAppointment(event: any) {
-    console.log('+++ edit ' + event);
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        appointmentData: JSON.stringify(event)
+      }
+    };
+    this.router.navigate(['doctor/dashboard/editAppointment'], navigationExtras);
   }
 
+  /**
+   * Method to delete existing appointment
+   * @param event 
+   */
   deleteAppointment(event: any) {
-    console.log('+++ delete ' + event);
     this.showDeleteAppointmentDialog(event);
   }
 
+  /**
+   * Method to show delete confirmation dialog
+   * @param data 
+   */
   showDeleteAppointmentDialog(data: any) {
     const message = Messages.Dialog_Confirmation_Delete_Message;
 
@@ -133,14 +158,16 @@ export class ListAppointmentComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
         },
         complete: () => {
-          console.log('complete');
           this.isDataLoading = false;
         }
       });
   }
 
-
+  /**
+   * Method to navigate to add appointment screen.
+   */
   navigateToAppointment() {
     this.router.navigate(["doctor/dashboard/addAppointment"]);
   }
+
 }
