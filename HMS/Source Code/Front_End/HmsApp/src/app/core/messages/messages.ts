@@ -33,7 +33,10 @@ export enum Messages {
     Logout_Confirmation = 'Are you sure you want to logout?',
     Login_Failure_Message = 'Unable to login. Please try again after sometime',
     RegisterUserSuccess='User Registered Successfully',
+    CreateDocAppointmentSuccess='New Appointment Created Successfully',
+    DeleteDocAppointmentSuccess='Appointment Deleted Successfully',
     Password_Validate_Message='New Password and Confirm New Password should be same',
+    No_Records_Message='No Records Found',
 }
 
 

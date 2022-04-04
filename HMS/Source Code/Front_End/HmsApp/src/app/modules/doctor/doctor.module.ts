@@ -16,16 +16,14 @@ import { DocHomeComponent } from './doc-home/doc-home.component';
 
 @NgModule({
   declarations: [
-  
-   
-       DocDashboardComponent,
-       AddAppointmentComponent,
-       ListAppointmentComponent,
-       AddTreatmentComponent,
-       ListTreatmentComponent,
-       AddAppointmentMedicineComponent,
-       ListAppointmentMedicineComponent,
-       DocHomeComponent
+    DocDashboardComponent,
+    AddAppointmentComponent,
+    ListAppointmentComponent,
+    AddTreatmentComponent,
+    ListTreatmentComponent,
+    AddAppointmentMedicineComponent,
+    ListAppointmentMedicineComponent,
+    DocHomeComponent
   ],
   imports: [
     CommonModule,

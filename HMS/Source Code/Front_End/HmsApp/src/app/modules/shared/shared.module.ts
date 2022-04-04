@@ -79,6 +79,7 @@ const MaterialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
+  MatNativeDateModule,
   MatTooltipModule,
   MatDialogModule
 ];
