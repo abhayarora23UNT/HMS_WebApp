@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           if (retData.status) {
             this.parseResponse(retData,requestData);
           } else {
-            this.toastService.errorMessage(retData.message);
+            this.toastService.errorMessage(Messages.Login_Failure_Message, 3000);
           }
           this.isDataLoading = false;
         },
