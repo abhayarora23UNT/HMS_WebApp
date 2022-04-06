@@ -1,0 +1,4 @@
+As discussed in the Elicitation workshop we are going to update the new feature
+In this feature, we are going to add the "Office Staff" module in the place of "Nurse" role
+The main Role of the "office Staff" is to take the details of the persons who joined in the hospital 
+as the emergency case and also to do the mandatory first aid when the new patient joins the hospital
