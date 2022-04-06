@@ -111,7 +111,7 @@ export class EditAppointmentComponent implements OnInit, OnDestroy {
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
-            this.toastService.successMessage(Messages.CreateDocAppointmentSuccess);
+            this.toastService.successMessage(Messages.UpdateDocAppointmentSuccess);
             this.navigateToListAppointmentScreen();
           } else {
             this.toastService.errorMessage(retData.message);
