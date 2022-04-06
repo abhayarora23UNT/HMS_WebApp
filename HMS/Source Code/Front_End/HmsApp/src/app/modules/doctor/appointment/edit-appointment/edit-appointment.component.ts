@@ -61,6 +61,8 @@ export class EditAppointmentComponent implements OnInit, OnDestroy {
    */
   createFormGroup() {
     this.fgEditAppointment = this.formBuilder.group({
+      appointmentId: ['', ],
+      appointmentCode: ['', ],
       hospitalId: ['', Validators.required],
       doctorId: ['', Validators.required],
       patientId: ['', Validators.required],
