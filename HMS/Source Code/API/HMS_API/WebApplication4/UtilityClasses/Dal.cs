@@ -244,7 +244,7 @@ namespace WebApplication4.UtilityClasses
                 else if (typeof(T) == typeof(Appointment))
                 {
                     Appointment T1 = (Appointment)(object)Request;
-                    command = string.Format("UPDATE appointments Set DoctorId = {0}, PatientId = {1}, HospitalId = {2}, Appt_Date = '{3}', Next_Appt_Date = '{4}', DiseaseNotes = '{5}', Fee = {6} WHERE AppointmentId = '{7}'", T1.DoctorId, T1.PatientId, T1.HospitalId, T1.Appt_Date, T1.Next_Appt_Date, T1.DiseaseNotes, T1.Fee, T1.AppointmentId);
+                    command = string.Format("UPDATE appointments Set DoctorId = {0}, PatientId = {1}, HospitalId = {2}, Appt_Date = '{3}', Next_Appt_Date = '{4}', DiseaseNotes = '{5}', Fee = {6} WHERE AppointmentId = '{7}'", T1.DoctorId, T1.PatientId, T1.HospitalId, T1.Appt_Date.ToString("yyyy-MM-dd"), T1.Next_Appt_Date.ToString("yyyy-MM-dd"), T1.DiseaseNotes, T1.Fee, T1.AppointmentId);
                 }
                 else if (typeof(T) == typeof(PaymentMode))
                 {
@@ -412,9 +412,18 @@ namespace WebApplication4.UtilityClasses
                         }
                     }
                 }
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count>0)
+                {
+                    objres.status = true;
+                    objres.Dataresult = ds;
+                }
+                else
+                {
+                    objres.status = false;
+                    objres.Dataresult = null;
+                }
 
-                objres.status = true;
-                objres.Dataresult = ds;
+              
                 return objres;
 
             }
