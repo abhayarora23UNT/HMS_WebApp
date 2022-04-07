@@ -1,14 +1,14 @@
+Teams Participating
+•	UntIgnitors
+•	Eagle Verse
 
-
-Team UntIgnitors feedback to Eagle Verse
-
+Feedback is given by UntIgnitors to Eagle Verse:
 1- Proper comments should be present in spring-boot java API code
-2- Overall code should be indented, extra spacing between html classes should be removed
+2- Overall code should be indented, extra spacing between HTML classes should be removed
 3- Redundant Html tags(without opening tag) should be removed from the code
-4- Code snippet of style/css files should be included in Code Inspection Document
+4- Code snippet of style/CSS files should be included in Code Inspection Document
 
-
-Team Eagle Verse feedback to  UntIgnitors 
-
-1- Length of overall code inspection document can be reduced (as per the submission guidelines) 
-2- Comments should be added in angular (ts code) , if its not present at some places
+Feedback is given by Eagle Verse to UntIgnitors :
+1-The length of the overall code inspection document can be reduced (as per the submission guidelines) 
+2-Comments should be added in angular (ts code) if it’s not present in some places
+3-SQL code snippets can be avoided in inspection documents.
