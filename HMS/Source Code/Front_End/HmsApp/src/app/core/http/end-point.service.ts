@@ -15,6 +15,9 @@ export class EndPointService {
   getHospitalBranchList='api/HospitalBranch/GetHospitalBranch';
   getPatientsList='api/Patients/GetPatients';
 
+  getAppointmentList='api/Appointment/GetAppointment';
+  getMedicinesList='api/Medicines/GetMedicines';
+
   // Doctors Module //
 
   getDocAppointmentList = 'api/Appointment/GetAppointment';
@@ -22,7 +25,10 @@ export class EndPointService {
   editDocAppointment = 'api/Appointment/EditAppointment';
   deleteDocAppointment = 'api/Appointment/DeleteAppointment';
   
-
+  getAppointmentMedicineList = 'api/Appointmentmedicine/GetAppointmentmedicine';
+  createAppointmentMedicine = 'api/Appointmentmedicine/CreateAppointmentmedicine';
+  editAppointmentMedicine = 'api/Appointmentmedicine/EditAppointmentmedicine';
+  deleteAppointmentMedicine = 'api/Appointmentmedicine/DeleteAppointmentmedicine';
 
   // Admin Module //
 }

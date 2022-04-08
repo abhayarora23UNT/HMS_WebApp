@@ -18,6 +18,8 @@ export class DoctorAppointmentService {
     }
 
 
+    // #region 'appointment'
+    
     /**
      * Function will return doctor appointment list
      * @param requestData payload for register user api
@@ -73,4 +75,65 @@ export class DoctorAppointmentService {
                 catchError((err) => this.commonUtilsProvider.catchError(err))
             );
     }
+
+    // #endregion 'appointment'
+
+    // #region 'appointmentmedicine'
+
+     /**
+     * Function will return appointment medicine list
+     * @param requestData payload for register user api
+     */
+      getAppointmentMedicineList(requestData: any): Observable<any> {
+        return this.baseHttp.post(this.endpoint.getAppointmentMedicineList, requestData)
+            .pipe(
+                timeout(ModuleConstants.apiTimeout),
+                map((res) => this.commonUtilsProvider.extractData(res)),
+                catchError((err) => this.commonUtilsProvider.catchError(err))
+            );
+    }
+
+    /**
+     * Method to create new appointment medicine
+     * @param requestData 
+     * @returns 
+     */
+    createAppointmentMedicine(requestData: any) {
+        return this.baseHttp.post(this.endpoint.createAppointmentMedicine, requestData)
+            .pipe(
+                timeout(ModuleConstants.apiTimeout),
+                map((res) => this.commonUtilsProvider.extractData(res)),
+                catchError((err) => this.commonUtilsProvider.catchError(err))
+            );
+    }
+
+    /**
+     * Method to edit existing appointment medicine
+     * @param requestData 
+     * @returns 
+     */
+    editAppointmentMedicine(requestData: any) {
+        return this.baseHttp.put(this.endpoint.editAppointmentMedicine, requestData)
+            .pipe(
+                timeout(ModuleConstants.apiTimeout),
+                map((res) => this.commonUtilsProvider.extractData(res)),
+                catchError((err) => this.commonUtilsProvider.catchError(err))
+            );
+    }
+
+
+    /**
+     * Method to delete existing appointment medicine
+     * @param requestData 
+     * @returns 
+     */
+    deleteAppointmentMedicine(requestData: any) {
+        return this.baseHttp.delete(this.endpoint.deleteAppointmentMedicine+'/'+requestData)
+            .pipe(
+                timeout(ModuleConstants.apiTimeout),
+                map((res) => this.commonUtilsProvider.extractData(res)),
+                catchError((err) => this.commonUtilsProvider.catchError(err))
+            );
+    }
+    // #endregion 'appointmentmedicine'
 }
