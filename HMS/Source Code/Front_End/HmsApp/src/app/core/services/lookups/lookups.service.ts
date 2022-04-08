@@ -51,4 +51,40 @@ export class LookupService {
   }
 
 
+  /**
+   * Function will get appointment list
+   */
+     getAppointmentList(): Observable<any> {
+      return this.baseHttp.post(this.endpoint.getAppointmentList,'')
+        .pipe(
+          timeout(ModuleConstants.apiTimeout),
+          map((res) => this.commonUtilsProvider.extractData(res)),
+          catchError((err) => this.commonUtilsProvider.catchError(err))
+        );
+    }
+
+  /**
+   * Function will get medicines list
+   */
+   getMedicinesList(): Observable<any> {
+    return this.baseHttp.post(this.endpoint.getMedicinesList,'')
+      .pipe(
+        timeout(ModuleConstants.apiTimeout),
+        map((res) => this.commonUtilsProvider.extractData(res)),
+        catchError((err) => this.commonUtilsProvider.catchError(err))
+      );
+  }
+
+    /**
+   * Function will get treatment list
+   */
+     getTreatmentList(): Observable<any> {
+      return this.baseHttp.post(this.endpoint.getTreatmentList,'')
+        .pipe(
+          timeout(ModuleConstants.apiTimeout),
+          map((res) => this.commonUtilsProvider.extractData(res)),
+          catchError((err) => this.commonUtilsProvider.catchError(err))
+        );
+    }
+
 }
