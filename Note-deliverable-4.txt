@@ -4,7 +4,7 @@ Directory\Folder - HMS\Deliverables
 
 Deliverable 4 - HMS\Deliverables\Deliverable 4
 
-MOM Locations - HMS\MOM
+MOM Locations - HMS\MOM\Deliverable-4_MOM
 
 Planning Docs - HMS\Planning\Design
 

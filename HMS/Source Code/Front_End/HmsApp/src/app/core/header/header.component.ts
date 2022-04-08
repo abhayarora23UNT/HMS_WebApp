@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .getData()
       .subscribe(data => {
         console.log(data);
-        if (data == '/login') {
+        if (data == '/login' || data == '/authentication/register' || data=='/authentication/login') {
           this.showUserDetails = false;
         } else {
           this.showUserDetails = true;
