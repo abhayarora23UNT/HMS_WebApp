@@ -9,6 +9,7 @@ import { DocDashboardComponent } from "./doc-dashboard/doc-dashboard.component";
 import { DoctorRoutingModule } from "./doctor-routing.module";
 import { AddTreatmentMedicineComponent } from "./treatment/add-treatment/add-treatment.component";
 import { ListTreatmentMedicineComponent } from "./treatment/list-treatment/list-treatment.component";
+import { EditTreatmentMedicineComponent } from "./treatment/edit-treatment/edit-treatment.component";
 import { DocHomeComponent } from './doc-home/doc-home.component';
 
 import { EditAppointmentComponent } from "./appointment/edit-appointment/edit-appointment.component";
@@ -22,6 +23,7 @@ import { EditAppointmentMedicineComponent } from "./appointment-medicine/edit-ap
     ListAppointmentComponent,
     AddTreatmentMedicineComponent,
     ListTreatmentMedicineComponent,
+    EditTreatmentMedicineComponent,
     EditAppointmentComponent,
     AddAppointmentMedicineComponent,
     ListAppointmentMedicineComponent,

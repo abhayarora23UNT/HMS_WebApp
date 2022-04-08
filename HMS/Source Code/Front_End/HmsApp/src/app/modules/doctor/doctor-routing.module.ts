@@ -11,6 +11,7 @@ import { ListAppointmentComponent } from './appointment/list-appointment/list-ap
 import { DocDashboardComponent } from './doc-dashboard/doc-dashboard.component';
 import { DocHomeComponent } from './doc-home/doc-home.component';
 import { AddTreatmentMedicineComponent } from './treatment/add-treatment/add-treatment.component';
+import { EditTreatmentMedicineComponent } from './treatment/edit-treatment/edit-treatment.component';
 import { ListTreatmentMedicineComponent } from './treatment/list-treatment/list-treatment.component';
 
 
@@ -51,7 +52,10 @@ const routes: Routes = [
         path: 'listTreatmentMedicine',
         component: ListTreatmentMedicineComponent,
       },
-
+      {
+        path: 'editTreatmentMedicine',
+        component: EditTreatmentMedicineComponent,
+      },
       {
         path: 'addAppointmentMedicine',
         component: AddAppointmentMedicineComponent,

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
@@ -10,21 +10,28 @@ import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.ser
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 
 @Component({
-  selector: 'app-doc-add-treatment',
-  templateUrl: './add-treatment.component.html',
-  styleUrls: ['./add-treatment.component.scss']
+  selector: 'app-doc-edit-treatment',
+  templateUrl: './edit-treatment.component.html',
+  styleUrls: ['./edit-treatment.component.scss']
 })
-export class AddTreatmentMedicineComponent implements OnInit, OnDestroy {
+export class EditTreatmentMedicineComponent implements OnInit, OnDestroy {
 
-  fgAddTreatment!: FormGroup;
+  fgEditTreatment!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
   treatmentIdList: any = [];   // dropdown list for doctor Id
   medicineIdList: any = [];  // dropdown list for patient Id
-
+  treatmentMedicineData:any;
   constructor(private formBuilder: FormBuilder, private treatmentService: TreatmentService, private toastService: ToastMessageService,
-    private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService) {
+    private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService,private route: ActivatedRoute) {
     this.createFormGroup();
+    
+    // get existing appointment data from routing params //
+    this.route.queryParams.subscribe(params => {
+      if (params && params['treatmentData']) {
+        this.treatmentMedicineData = JSON.parse(params['treatmentData']);
+      }
+    });
   }
 
   /**
@@ -33,6 +40,7 @@ export class AddTreatmentMedicineComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getMedicinesList();
     this.getTreatmentList();
+    this.bindFormData(this.treatmentMedicineData);
   }
 
   /**
@@ -44,10 +52,21 @@ export class AddTreatmentMedicineComponent implements OnInit, OnDestroy {
 
 
   /**
+   * Method to bind form data
+   * @param formData 
+   */
+   bindFormData(formData: any) {
+    if (formData) {
+      this.fgEditTreatment.patchValue(this.treatmentMedicineData);
+    }
+  }
+
+
+  /**
    * Method to create form group
    */
   createFormGroup() {
-    this.fgAddTreatment = this.formBuilder.group({
+    this.fgEditTreatment = this.formBuilder.group({
       treatmentMedicineId: ['',],
       treatmentId: ['', Validators.required],
       medicineId: ['', Validators.required],
@@ -56,32 +75,32 @@ export class AddTreatmentMedicineComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Method to create Treatment
+   * Method to update Treatment
    */
-  createTreatment() {
-    if (this.fgAddTreatment.status == Constants.FormInvalid) {
+   updateTreatment() {
+    if (this.fgEditTreatment.status == Constants.FormInvalid) {
       this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
     } else {
-      const fgValue = JSON.parse(JSON.stringify(this.fgAddTreatment.value));
+      const fgValue = JSON.parse(JSON.stringify(this.fgEditTreatment.value));
       console.log('data is  ' + fgValue);
       fgValue.limit = +fgValue.limits
-      this.callCreateTreatmentApi(fgValue);
+      this.callUpdateTreatmentApi(fgValue);
     }
   }
 
   /**
-    * Method to called create Treatment api
+    * Method to called update Treatment api
     * @param respData 
     */
-  callCreateTreatmentApi(respData: any) {
+   callUpdateTreatmentApi(respData: any) {
     this.isDataLoading = true;
-    this.treatmentService.createTreatmentMedicine(respData)
+    this.treatmentService.editTreatmentMedicine(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
-            this.toastService.successMessage(Messages.CreateTreatmentSuccess);
+            this.toastService.successMessage(Messages.UpdateTreatmentMedicineSuccess);
             this.navigateToListTreatmentScreen();
           } else {
             this.toastService.errorMessage(retData.message);
