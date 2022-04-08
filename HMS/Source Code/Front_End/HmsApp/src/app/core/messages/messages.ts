@@ -36,6 +36,11 @@ export enum Messages {
     CreateDocAppointmentSuccess='New Appointment Created Successfully',
     UpdateDocAppointmentSuccess='Appointment Updated  Successfully',
     DeleteDocAppointmentSuccess='Appointment Deleted Successfully',
+
+    CreateTreatmentSuccess='New Treatment Medicine Created Successfully',
+    UpdateTreatmentMedicineSuccess='Treatment Medicine Updated  Successfully',
+    DeleteTreatmentSuccess='Treatment Medicine Deleted Successfully',
+    
     Password_Validate_Message='New Password and Confirm New Password should be same',
     No_Records_Message='No Records Found',
 }

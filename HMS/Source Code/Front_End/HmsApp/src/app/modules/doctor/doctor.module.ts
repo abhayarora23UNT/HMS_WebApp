@@ -7,8 +7,8 @@ import { AddAppointmentComponent } from "./appointment/add-appointment/add-appoi
 import { ListAppointmentComponent } from "./appointment/list-appointment/list-appointment.component";
 import { DocDashboardComponent } from "./doc-dashboard/doc-dashboard.component";
 import { DoctorRoutingModule } from "./doctor-routing.module";
-import { AddTreatmentComponent } from "./treatment/add-treatment/add-treatment.component";
-import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatment.component";
+import { AddTreatmentMedicineComponent } from "./treatment/add-treatment/add-treatment.component";
+import { ListTreatmentMedicineComponent } from "./treatment/list-treatment/list-treatment.component";
 import { DocHomeComponent } from './doc-home/doc-home.component';
 
 import { EditAppointmentComponent } from "./appointment/edit-appointment/edit-appointment.component";
@@ -20,8 +20,8 @@ import { EditAppointmentMedicineComponent } from "./appointment-medicine/edit-ap
     DocDashboardComponent,
     AddAppointmentComponent,
     ListAppointmentComponent,
-    AddTreatmentComponent,
-    ListTreatmentComponent,
+    AddTreatmentMedicineComponent,
+    ListTreatmentMedicineComponent,
     EditAppointmentComponent,
     AddAppointmentMedicineComponent,
     ListAppointmentMedicineComponent,
