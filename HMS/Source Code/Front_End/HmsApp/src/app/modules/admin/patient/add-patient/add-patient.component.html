@@ -1,7 +1,7 @@
 <div class="row mt-4 mr-1" >
     <div class="col-12" style="text-align:right">
         <button class="btn-regular" title="View Appointment" (click)="navigateToListAppointmentScreen()">
-            View Doctors
+            View Patients
         </button>
     </div>
 </div>
@@ -9,12 +9,12 @@
 <div class="register-wrapper mb-4 mt-4" fxLayout="row" fxLayoutAlign="center center">
 <mat-card class="box">
     <mat-card-header>
-        <mat-card-title>Add Doctor</mat-card-title>
+        <mat-card-title>Add Patient</mat-card-title>
     </mat-card-header>
-    <form class="register-form" [formGroup]="fgAddDoctor">
+    <form class="register-form" [formGroup]="fgAddPatient">
         <mat-card-content>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="First Name" formControlName="firstname" required appLimitTo=13
+                <input matInput placeholder="Name" formControlName="name" required appLimitTo=13
                 appSpecialCharacters>
             </mat-form-field>
             <mat-form-field class="field-full-width">
@@ -44,7 +44,7 @@
                 </mat-select>
               </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Designation" formControlName="designation">
+                <input matInput placeholder="Disease" formControlName="disease">
             </mat-form-field>
         </mat-card-content>
         <button mat-stroked-button color="primary" class="btn-block" (click)="createAppointment()">Create</button>

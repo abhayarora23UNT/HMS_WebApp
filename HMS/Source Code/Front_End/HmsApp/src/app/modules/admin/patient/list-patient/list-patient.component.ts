@@ -2,18 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-list-doctor',
-  templateUrl: './list-doctor.component.html',
-  styleUrls: ['./list-doctor.component.scss']
+  selector: 'app-list-patient',
+  templateUrl: './list-patient.component.html',
+  styleUrls: ['./list-patient.component.scss']
 })
-export class ListDoctorComponent implements OnInit {
-  appointmentColumns: string[] = ['name', 'designation', 'mobileno', 'gender', 'email'];
+export class ListPatientComponent implements OnInit {
+
+  appointmentColumns: string[] = ['name', 'disease', 'mobileno', 'gender', 'email','action'];
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = []; 
   constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
+
   /**
    * Method to navigate to edit appointment page
    * @param event 
@@ -36,8 +38,7 @@ export class ListDoctorComponent implements OnInit {
   }
 
   navigateToAppointment() {
-    this.router.navigate(["admin/dashboard/addDoctor"]);
+    this.router.navigate(["admin/dashboard/addPatient"]);
   }
-
 
 }

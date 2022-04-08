@@ -17,30 +17,15 @@ export class DocHomeComponent implements OnInit {
   
   getRecordsList() {
     const dataList: any = [
-      {
-        "icon": "folder_special",
-        "count": 10,
-        "title": "Specializations",
-        "color": "red"
-      },
-      {
-        "icon": "supervisor_account",
-        "count": 5,
-        "title": "Doctors",
-        "color": "blue"
-      },
+     
+      
       {
         "icon": "person",
         "count": 2,
         "title": "Patients",
         "color": "green"
       },
-      {
-        "icon": "local_hospital",
-        "count": 6,
-        "title": "Hospital Branches",
-        "color": "black"
-      },
+    
       {
         "icon": "access_time",
         "count": 8,
@@ -59,18 +44,7 @@ export class DocHomeComponent implements OnInit {
         "title": "Medicines",
         "color": "black"
       },
-      {
-        "icon": "book_online",
-        "count": 9,
-        "title": "Admissions",
-        "color": "black"
-      },
-      {
-        "icon": "people_outline",
-        "count": 8,
-        "title": "Staff",
-        "color": "black"
-      },
+    
 
     ];
 
