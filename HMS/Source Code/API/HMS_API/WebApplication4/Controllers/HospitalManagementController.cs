@@ -1023,7 +1023,7 @@ namespace WebApplication4.Controllers
         public async Task<HttpResponseMessage> DeleteAppointmentmedicine(int AppointmentmedicineId)
         {
             await Task.Yield();
-            return PrepareDMLOutput(Dal.DeleteRecord("Trt_Medication", AppointmentmedicineId));
+            return PrepareDMLOutput(Dal.DeleteRecord("Dlt_Medication", AppointmentmedicineId));
         }
 
         [HttpPost]
@@ -1094,7 +1094,7 @@ namespace WebApplication4.Controllers
         public async Task<HttpResponseMessage> DeleteTreatmentMedicine(int TreatmentMedicineId)
         {
             await Task.Yield();
-            return PrepareDMLOutput(Dal.DeleteRecord("Trt_Medication", TreatmentMedicineId));
+            return PrepareDMLOutput(Dal.DeleteRecord("Dlt_Trt_Medication", TreatmentMedicineId));
         }
 
         [HttpPost]

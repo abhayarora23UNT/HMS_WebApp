@@ -299,6 +299,8 @@ namespace WebApplication4.UtilityClasses
                 else if(Type== "Service") command = "Delete from servicerooms Where ServiceRoomId = " + ID.ToString();
                 else if(Type== "operativerooms") command = "Delete from operativerooms Where OperativeRoomId = " + ID.ToString();
                 else if(Type== "App_Medication") command = "Delete from appointmentmedicines Where AppointmentId = " + ID.ToString();
+                else if (Type == "Dlt_Medication") command = "Delete from appointmentmedicines Where ApptMedicineId = " + ID.ToString();
+                else if (Type == "Dlt_Trt_Medication") command = "Delete from treamentmedicines Where TreatmentMedicineId = " + ID.ToString();
                 else if(Type== "Trt_Medication") command = "Delete from treamentmedicines Where TreatmentId = " + ID.ToString();
                 else if(Type== "TreatmentNurse") command = "Delete from treamentnurses Where TreatmentNurseId = " + ID.ToString();
                 else if(Type== "DoctorSpecs") command = "Delete from doctorspecializations Where DoctorId = " + ID.ToString();
