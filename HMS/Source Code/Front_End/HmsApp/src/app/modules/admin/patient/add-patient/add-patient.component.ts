@@ -2,34 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-add-doctor',
-  templateUrl: './add-doctor.component.html',
-  styleUrls: ['./add-doctor.component.scss']
+  selector: 'app-add-patient',
+  templateUrl: './add-patient.component.html',
+  styleUrls: ['./add-patient.component.scss']
 })
-export class AddDoctorComponent implements OnInit {
+export class AddPatientComponent implements OnInit {
   Genders: string[] = [
     'Male',
     'Female'
   ]
-  fgAddDoctor!: FormGroup;
+  fgAddPatient!: FormGroup;
   isDataLoading = false;
   constructor(private router: Router,private formBuilder: FormBuilder,) {
     this.createFormGroup();
-    
-   }
+  }
 
   ngOnInit(): void {
   }
   createFormGroup() {
-    this.fgAddDoctor = this.formBuilder.group({
-      firstname: ['', Validators.required],
+    this.fgAddPatient = this.formBuilder.group({
+      name: ['', Validators.required],
       address1: ['', Validators.required],
       city: ['', Validators.required],
       email: ['', Validators.required],
       phoneno: ['', Validators.required],
-      designation: [''],
+      disease: [''],
       gender: ['', Validators.required],
     });
   }
@@ -37,6 +35,6 @@ export class AddDoctorComponent implements OnInit {
 
   }
   navigateToListAppointmentScreen() {
-    this.router.navigate(['admin/dashboard/listDoctor']);
+    this.router.navigate(['admin/dashboard/listPatient']);
   }
 }

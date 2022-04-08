@@ -18,6 +18,8 @@ import { ListStaffComponent } from "./staff/list-staff/list-staff.component";
 import { AddTreatmentComponent } from "./treatment/add-treatment/add-treatment.component";
 import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatment.component";
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AddPatientComponent } from './patient/add-patient/add-patient.component';
+import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     ListStaffComponent,
     AddTreatmentComponent,
     ListTreatmentComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AddPatientComponent,
+    ListPatientComponent
   ],
   imports: [
     CommonModule,

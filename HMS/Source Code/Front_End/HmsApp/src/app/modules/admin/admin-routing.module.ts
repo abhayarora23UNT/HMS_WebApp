@@ -16,6 +16,8 @@ import { AddStaffComponent } from './staff/add-staff/add-staff.component';
 import { ListStaffComponent } from './staff/list-staff/list-staff.component';
 import { AddTreatmentComponent } from './treatment/add-treatment/add-treatment.component';
 import { ListTreatmentComponent } from './treatment/list-treatment/list-treatment.component';
+import { AddPatientComponent } from './patient/add-patient/add-patient.component';
+import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 
 
 
@@ -87,6 +89,14 @@ const routes: Routes = [
       {
         path: 'listStaff',
         component: ListStaffComponent,
+      },
+      {
+        path: 'addPatient',
+        component: AddPatientComponent,
+      },
+      {
+        path: 'listPatient',
+        component: ListPatientComponent,
       },
 
       {
