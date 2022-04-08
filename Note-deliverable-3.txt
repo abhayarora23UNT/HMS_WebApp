@@ -2,9 +2,9 @@ Deliverables Locations
 
 Directory\Folder - HMS\Deliverables
 
-Deliverable 3 - HMS\Deliverables\Deliverable3
+Deliverable 3 - HMS\Deliverables\Deliverable 3
 
-MOM Locations - HMS\MOM
+MOM Locations - HMS\MOM\Deliverable-3_MOM
 
 Planning Docs - HMS\Planning\Design
 
@@ -14,4 +14,6 @@ API -  HMS\Source Code\API
 
 Database - HMS\Source Code\Database
 
-Front End - Source Code\Front_End
+Front End - HMS\Source Code\Front_End
+
+Note:Refer 'main' branch in GitHub Repo for Assessment

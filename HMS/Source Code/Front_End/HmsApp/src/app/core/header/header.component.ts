@@ -1,12 +1,11 @@
-import { Component, OnDestroy, OnInit, NgZone, HostListener, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, Subject } from 'rxjs';
-import { Constants } from '../constants/constants';
 import { Router } from '@angular/router';
-import { Messages } from '../messages/messages';
-import { takeUntil } from 'rxjs/operators';
 import { StorageProvider } from '../http/storage-service';
 import { Location } from '@angular/common';
-import { CommonUtilsService } from '../services/utils/common-utils.service';
+import { PublishEventService } from '../services/utils/publish-event.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 declare var window: any;
 @Component({
@@ -21,22 +20,35 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
 
-  
+
   showLinksBox = false;
   isLoading = false;
-  dbServer: any;
-  userResponsibility: any;
   isProdEnv = false;
-  userName=null;
-  constructor(private router: Router, private location: Location, private storageService: StorageProvider) {
-   
+  userName = null;
+  userRole = null;
+  showUserDetails = false;
+  private subscriptionRoute!: Subscription;
+  constructor(private router: Router, private location: Location, private storageService: StorageProvider, private eventService: PublishEventService,public dialog: MatDialog) {
+
   }
 
   /**
    * Desc: Method called on page initialization.
    */
   ngOnInit() {
-  
+    this.subscriptionRoute = this.eventService
+      .getData()
+      .subscribe(data => {
+        console.log(data);
+        if (data == '/login' || data == '/authentication/register' || data=='/authentication/login') {
+          this.showUserDetails = false;
+        } else {
+          this.showUserDetails = true;
+          this.userName = this.storageService.getSessionStorageData('userName');
+          this.userRole = this.storageService.getSessionStorageData('userRole');
+        }
+      })
+
   }
 
   /**
@@ -44,9 +56,33 @@ export class HeaderComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     this.onDestroy$.next();
-    
+    this.subscriptionRoute.unsubscribe();
+
   }
 
-  
+  appLogoutConfirm() {
+    const message = `Do you want to logout?`;
+
+    const dialogData = {
+      title:"Confirm",
+      message:message
+    };
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if(dialogResult){
+        this.storageService.removeKeys('userName');
+        this.storageService.removeKeys('userRole');
+        this.router.navigate(['login']);
+      }
+    });
+    // if (window.confirm('Do you want to logout?')) {
+     
+    // }
+  }
 
 }

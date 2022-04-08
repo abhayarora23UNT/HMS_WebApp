@@ -1,0 +1,18 @@
+Team Participating:
+•	UntIgnitors
+•	Eagleverse
+
+Suggestion/Feedback given by the Eagleverse to UntIgnitors:
+•	Adding Hospital Staff to collect data in the event of an emergency.
+•	Nurse login
+
+Accepted: 
+•	Hospital Staff 
+
+Rejected: 
+•	We have rejected login for nurses instead we have added hospital staff. 
+
+Suggestion/Feedback given by the UntIgnitors to Eagleverse:
+•	Can doctors provide prescriptions online?
+•	Any feature to enable help desk support for students.
+

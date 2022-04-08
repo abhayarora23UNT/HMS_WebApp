@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           if (retData.status) {
             this.parseResponse(retData,requestData);
           } else {
-            this.toastService.errorMessage(retData.message);
+            this.toastService.errorMessage(Messages.Login_Failure_Message, 3000);
           }
           this.isDataLoading = false;
         },
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
         },
         complete: () => {
-          console.log('complete');
+         
           this.isDataLoading = false;
         }
       });
@@ -98,13 +98,35 @@ export class LoginComponent implements OnInit, OnDestroy {
    */
   parseResponse(retData: any, requestData: any) {
     if (retData.data.Table != null && retData.data.Table.length > 0 && retData.data.Table[0].UserRole) {
-      this.storageService.setSessionStorageData('userRole', retData.data.Table[0].UserRole);
-      this.storageService.setSessionStorageData('userName', requestData.Email);
-      this.toastService.successMessage(Messages.RegisterUserSuccess, 3000);
-      this.router.navigate(['home']);
+      const userRole=retData.data.Table[0].UserRole;
+      const userName=requestData.Email;
+      this.storageService.setSessionStorageData('userRole', userRole);
+      this.storageService.setSessionStorageData('userName', userName);
+      this.checkForNavigation(userRole);
     } else {
       this.toastService.errorMessage(Messages.Login_Failure_Message, 3000);
     }
   }
 
+  /**
+   * Method to check role based routing
+   */
+  checkForNavigation(userRole: any) {
+
+    let routerPath = '';
+    switch (userRole) {
+
+      case 'Admin':
+        routerPath = 'admin';
+        break
+      case 'Doctor':
+        routerPath = 'doctor';
+        break
+
+      // add cases later //
+      default:
+        routerPath = 'home';
+    }
+    this.router.navigate([routerPath]);
+  }
 }

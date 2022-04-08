@@ -1,10 +1,10 @@
-<div class="register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="register-wrapper mt-4" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
         <mat-card-header>
             <mat-card-title>LOG IN</mat-card-title>
         </mat-card-header>
         <form class="login-form" [formGroup]="fgLogin">
-            <mat-card-content>
+            <mat-card-content style="margin-top: 30px;">
                 <mat-form-field class="field-full-width">
                     <input matInput placeholder="Username" formControlName="userName" required appLimitTo=13
                         appOnlyAlphaNumeric>
