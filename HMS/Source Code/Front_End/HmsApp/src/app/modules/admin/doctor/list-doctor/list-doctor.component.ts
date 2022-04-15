@@ -11,7 +11,7 @@ import { Doctor } from 'src/app/shared/models/doctor/doctor-resp-data';
   styleUrls: ['./list-doctor.component.scss']
 })
 export class ListDoctorComponent implements OnInit {
-  appointmentColumns: string[] = ['name', 'designation', 'mobileno', 'gender', 'email'];
+  appointmentColumns: string[] = ['name', 'designation', 'mobileno', 'gender', 'email','action'];
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = []; 
   private onDestroy$: Subject<void> = new Subject<void>();
