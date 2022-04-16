@@ -101,7 +101,7 @@ export class EditTreatmentMedicineComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
           if (retData.status) {
             this.toastService.successMessage(Messages.UpdateTreatmentMedicineSuccess);
-            this.navigateToListTreatmentScreen();
+            this.routeToListTreatmentScreen();
           } else {
             this.toastService.errorMessage(retData.message);
           }
@@ -120,7 +120,7 @@ export class EditTreatmentMedicineComponent implements OnInit, OnDestroy {
   /**
    * Method to navigate to Treatment list screen
    */
-  navigateToListTreatmentScreen() {
+   routeToListTreatmentScreen() {
     this.router.navigate(['doctor/dashboard/listTreatmentMedicine']);
   }
 

@@ -163,7 +163,7 @@ export class ListTreatmentMedicineComponent implements OnInit, OnDestroy {
   /**
    * Method to navigate to add Treatment screen.
    */
-  navigateToTreatment() {
+   routeToTreatment() {
     this.router.navigate(["doctor/dashboard/addTreatmentMedicine"]);
   }
 
