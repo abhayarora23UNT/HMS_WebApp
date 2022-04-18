@@ -72,16 +72,19 @@ export class ToastMessageService {
      * @param timeOutVal:custome timeoutval 
      */
     infoMessage(message: string, timeOutVal?: number) {
-        const title = '';
-        let defaultTimeout = Constants.DefaultToastTimeout;
-        if (timeOutVal) {
-            defaultTimeout = timeOutVal;
+        if(!this.toastr.currentlyActive){
+            const title = '';
+            let defaultTimeout = Constants.DefaultToastTimeout;
+            if (timeOutVal) {
+                defaultTimeout = timeOutVal;
+            }
+            this.toastr.info(message, title, {
+                timeOut: defaultTimeout,
+                closeButton:true,
+                positionClass:this.toastStyleClass
+            });
         }
-        this.toastr.info(message, title, {
-            timeOut: defaultTimeout,
-            closeButton:true,
-            positionClass:this.toastStyleClass
-        });
+     
     }
 
 }
