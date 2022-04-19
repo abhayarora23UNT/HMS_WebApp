@@ -87,6 +87,7 @@ export class AddAppointmentComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
           if (retData.status) {
             this.toastService.successMessage(Messages.CreateDocAppointmentSuccess);
+            this.fgAddAppointment.markAsPristine();
             this.navigateToListAppointmentScreen();
           } else {
             this.toastService.errorMessage(retData.message);
