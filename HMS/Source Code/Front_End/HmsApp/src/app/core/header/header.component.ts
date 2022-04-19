@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userRole = null;
   showUserDetails = false;
   private subscriptionRoute!: Subscription;
-  constructor(private router: Router, private location: Location, private storageService: StorageProvider, private eventService: PublishEventService,public dialog: MatDialog) {
+  constructor(private router: Router, private location: Location, private storageService: StorageProvider, private eventService: PublishEventService, public dialog: MatDialog) {
 
   }
 
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .getData()
       .subscribe(data => {
         console.log(data);
-        if (data == '/login' || data == '/authentication/register' || data=='/authentication/login') {
+        if (data == '/login' || data == '/authentication/register' || data == '/authentication/login') {
           this.showUserDetails = false;
         } else {
           this.showUserDetails = true;
@@ -64,8 +64,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const message = `Do you want to logout?`;
 
     const dialogData = {
-      title:"Confirm",
-      message:message
+      title: "Confirm",
+      message: message
     };
 
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -74,15 +74,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(dialogResult => {
-      if(dialogResult){
-        this.storageService.removeKeys('userName');
-        this.storageService.removeKeys('userRole');
-        this.router.navigate(['login']);
+      if (dialogResult) {
+        this.router.navigate(['login']).then((data) => {
+          if (data) {
+            this.storageService.removeKeys('userName');
+            this.storageService.removeKeys('userRole');
+          }
+        });
       }
     });
-    // if (window.confirm('Do you want to logout?')) {
-     
-    // }
+  
   }
 
 }
