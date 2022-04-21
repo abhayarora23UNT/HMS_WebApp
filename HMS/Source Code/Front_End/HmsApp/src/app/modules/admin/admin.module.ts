@@ -21,6 +21,9 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddPatientComponent } from './patient/add-patient/add-patient.component';
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 import { OperativeRoomComponent } from './operative-room/operative-room.component';
+import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
+import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
+import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { OperativeRoomComponent } from './operative-room/operative-room.componen
     AdminHomeComponent,
     AddPatientComponent,
     ListPatientComponent,
-    OperativeRoomComponent
+    OperativeRoomComponent,
+    EditDoctorComponent,
+    EditHospitalBranchComponent,
+    EditPatientComponent
   ],
   imports: [
     CommonModule,
