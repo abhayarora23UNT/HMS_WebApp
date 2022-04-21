@@ -16,8 +16,8 @@ export class BaseHttpService {
    // baseUrl: string = 'http://192.168.254.35:8087/';
    // baseUrl: string = 'http://172.20.5.236:8087/';
    
-  baseUrl: string = 'http://localhost:58853/';
-  // baseUrl: string = 'https://unt-hms-api.azurewebsites.net/';
+  // baseUrl: string = 'http://localhost:58853/';
+  baseUrl: string = 'https://unt-hms-api.azurewebsites.net/';
   
   /**
    * Function used for HTTP get
