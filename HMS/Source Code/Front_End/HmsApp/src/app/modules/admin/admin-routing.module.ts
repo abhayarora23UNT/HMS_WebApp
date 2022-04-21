@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { NavigationGuard } from 'src/app/core/authentication/auth-guard.service';
 import { AddAdmissionComponent } from './admission/add-admission/add-admission.component';
 import { ListAdmissionComponent } from './admission/list-admission/list-admission.component';
 import { AdminDashboardComponent } from './dashboard/admin-dashboard.component';
@@ -18,6 +19,7 @@ import { AddTreatmentComponent } from './treatment/add-treatment/add-treatment.c
 import { ListTreatmentComponent } from './treatment/list-treatment/list-treatment.component';
 import { AddPatientComponent } from './patient/add-patient/add-patient.component';
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
+import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 
 
 
@@ -63,7 +65,11 @@ const routes: Routes = [
         path: 'listHospitalBranch',
         component: ListHospitalBranchComponent,
       },
-
+      {
+        path: 'editHospitalBranch',
+        canDeactivate: [NavigationGuard],
+        component: EditHospitalBranchComponent,
+      },
       {
         path: 'addMedicine',
         component: AddMedicineComponent,

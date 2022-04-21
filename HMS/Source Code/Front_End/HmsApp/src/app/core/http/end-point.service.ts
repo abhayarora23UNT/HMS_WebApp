@@ -14,6 +14,9 @@ export class EndPointService {
   getDoctorsList='api/Doctors/GetDoctors';
   getHospitalBranchList='api/HospitalBranch/GetHospitalBranch';
   getPatientsList='api/Patients/GetPatients';
+  getRoomTypeList ='api/RoomType/GetRoomType';
+  getOperativeRoomList='api/OperativeRoom/GetOperativeRoom';
+  getSpecialization = 'api/Specializations/GetSpecializations';
 
   getAppointmentList='api/Appointment/GetAppointment';
   getMedicinesList='api/Medicines/GetMedicines';
@@ -39,6 +42,39 @@ export class EndPointService {
   deleteTreatmentMedicine = 'api/TreatmentMedicine/DeleteTreatmentMedicine';
   
   // Admin Module //
+
+  createHospitalBranchList= 'api/HospitalBranch/CreateHospitalBranch';
+  editHospitalBranchList= 'api/HospitalBranch/EditHospitalBranch';
+  deleteHospitalBranchList ='api/HospitalBranch/DeleteHospitalBranch';
+
+
+  createDoctorsList='api/Doctors/CreateDoctor';
+  editDoctorsList='api/Doctors/UpdateDoctor';
+  deleteDoctorsList='api/Doctors/DeleteDoctor';
+
+  createPatientsList='api/Patients/CreatePatient';
+  editPatientsList='api/Patients/UpdatePatient';
+  deletePatientsList='api/Patients/DeletePatient';
+
+  createRoomTypeList ='api/RoomType/CreateRoomType';
+  editRoomTypeList ='api/RoomType/EditRoomType';
+  deleteRoomTypeList ='api/RoomType/DeleteRoomType';
+
+  createOperativeRoomList='api/OperativeRoom/CreateOperativeRoom';
+  editOperativeRoomList='api/OperativeRoom/EditOperativeRoom';
+  deleteOperativeRoomList='api/OperativeRoom/DeleteOperativeRoom';
+
+  createTreatmentList='api/Treatment/CreateTreatment';
+  editTreatmentList='api/Treatment/EditTreatment';
+  deleteTreatmentList='api/Treatment/DeleteTreatment';
+
+  createSpecialization = 'api/Specializations/CreateSpecializations';
+  editSpecialization = 'api/Specializations/Editspecializations';
+  deleteSpecialization = 'api/Specializations/DeleteSpecializations';
+
+
+
+
 }
 
 
