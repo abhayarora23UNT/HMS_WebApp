@@ -40,7 +40,19 @@ export enum Messages {
     CreateTreatmentSuccess='New Treatment Medicine Created Successfully',
     UpdateTreatmentMedicineSuccess='Treatment Medicine Updated  Successfully',
     DeleteTreatmentSuccess='Treatment Medicine Deleted Successfully',
+
+    CreateDoctorSuccess='New Doctor Created Successfully',
+    UpdateDoctorSuccess='Doctor Updated  Successfully',
+    DeleteDoctorSuccess='Doctor Deleted Successfully',
     
+    CreatePatientSuccess='New Patient Created Successfully',
+    UpdatePatientSuccess='Patient Updated  Successfully',
+    DeletePatientSuccess='Patient Deleted Successfully',
+
+    CreateHospitalBranchSuccess='New Hospital Branch Created Successfully',
+    UpdateHospitalBranchSuccess='Hospital Branch Updated  Successfully',
+    DeleteHospitalBranchSuccess='Hospital Branch Deleted Successfully',
+
     Password_Validate_Message='New Password and Confirm New Password should be same',
     No_Records_Message='No Records Found',
 }

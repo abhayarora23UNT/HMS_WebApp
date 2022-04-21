@@ -24,7 +24,8 @@ export class ListPatientComponent implements OnInit {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         appointmentData: JSON.stringify(event)
-      }
+      },
+      skipLocationChange:true
     };
     this.router.navigate(['admin/dashboard/editAppointment'], navigationExtras);
   }

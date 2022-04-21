@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NavigationGuard } from 'src/app/core/authentication/auth-guard.service';
 import { AddTreatmentComponent } from '../admin/treatment/add-treatment/add-treatment.component';
 import { ListTreatmentComponent } from '../admin/treatment/list-treatment/list-treatment.component';
 import { AddAppointmentMedicineComponent } from './appointment-medicine/add-appointment-medicine/add-appointment-medicine.component';
@@ -33,10 +34,12 @@ const routes: Routes = [
       },
       {
         path: 'addAppointment',
+        canDeactivate: [NavigationGuard],
         component: AddAppointmentComponent,
       },
       {
         path: 'editAppointment',
+        canDeactivate: [NavigationGuard],
         component: EditAppointmentComponent,
       },
       {

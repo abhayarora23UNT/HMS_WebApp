@@ -94,7 +94,8 @@ export class ListTreatmentMedicineComponent implements OnInit, OnDestroy {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         treatmentData: JSON.stringify(event)
-      }
+      },
+      skipLocationChange:true
     };
     this.router.navigate(['doctor/dashboard/editTreatmentMedicine'], navigationExtras);
   }
