@@ -55,16 +55,11 @@ export class EditHospitalBranchComponent implements OnInit , OnDestroy {
 
   createFormGroup() {
     this.fgEditHospitalBranch = this.formBuilder.group({
-      hospitalId: [''],
-      hospitalCode:[''],
       name: ['', Validators.required],
       address1: ['', Validators.required],
-      address2:[''],
       city: ['', Validators.required],
       phone1: ['', Validators.required],
-      phone2: [''],
       email: ['', Validators.required],
-      description:['']
     });
   }
 

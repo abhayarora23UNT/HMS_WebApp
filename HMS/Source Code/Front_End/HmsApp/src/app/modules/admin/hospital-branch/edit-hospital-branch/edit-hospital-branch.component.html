@@ -9,7 +9,7 @@
 <div class="register-wrapper mb-4 mt-4" fxLayout="row" fxLayoutAlign="center center">
 <mat-card class="box">
     <mat-card-header>
-        <mat-card-title>Edit Hospital-Branch</mat-card-title>
+        <mat-card-title>Add Hospital-Branch</mat-card-title>
     </mat-card-header>
     <form class="register-form" [formGroup]="fgEditHospitalBranch">
         <mat-card-content>
@@ -31,7 +31,7 @@
                 <input matInput placeholder="Phone 1" formControlName="phone1" appLimitTo=10 appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Phone 2" formControlName="phone2" appLimitTo=10 appOnlyNumeric>
+                <input matInput placeholder="Phone 2" formControlName="phoneNumber2" appLimitTo=10 appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
                 <input matInput placeholder="Email" formControlName="email" required appLimitTo=20
@@ -42,7 +42,7 @@
             </mat-form-field>
             
         </mat-card-content>
-        <button mat-stroked-button color="primary" class="btn-block" (click)="editHospitalBranch()">Update</button>
+        <button mat-stroked-button color="primary" class="btn-block" (click)="editHospitalBranch()">Create</button>
      
     </form>
 </mat-card>
