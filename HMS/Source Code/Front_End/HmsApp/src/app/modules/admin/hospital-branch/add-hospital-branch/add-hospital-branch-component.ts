@@ -36,11 +36,13 @@ export class AddHospitalBranchComponent implements OnInit , OnDestroy {
     this.fgAddHospitalBranch = this.formBuilder.group({
       name: ['', Validators.required],
       address1: ['', Validators.required],
+      address2:[''],
       city: ['', Validators.required],
       phone1: ['', Validators.required],
+      phone2: [''],
       email: ['', Validators.required],
-      address2:[''],
       description:['']
+
     });
   }
 
