@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
-import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
+import { AdminDoctorService} from 'src/app/core/services/admin/admin-doctor.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
@@ -19,10 +19,14 @@ export class EditDoctorComponent implements OnInit , OnDestroy{
   fgEditDoctor!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
-  genderList: any =[];
+
+  genderList: string[] = [
+    'Male',
+    'Female'
+  ]
 
   editDoctorData: any;
-  constructor(private formBuilder: FormBuilder, private appointmentService: DoctorAppointmentService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private doctorService: AdminDoctorService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService, private route: ActivatedRoute) {
     this.createFormGroup();
 
@@ -50,13 +54,14 @@ export class EditDoctorComponent implements OnInit , OnDestroy{
    */
      createFormGroup() {
       this.fgEditDoctor = this.formBuilder.group({
-        firstname: ['', Validators.required],
+        name: ['', Validators.required],
         address1: ['', Validators.required],
         city: ['', Validators.required],
         email: ['', Validators.required],
-        phoneno: ['', Validators.required],
+        phone: ['', Validators.required],
         designation: [''],
         gender: ['', Validators.required],
+        doctorId:['']
       });
     }
 
@@ -94,7 +99,7 @@ export class EditDoctorComponent implements OnInit , OnDestroy{
     */
   callDoctorApi(respData: any) {
     this.isDataLoading = true;
-    this.appointmentService.editDocAppointment(respData)
+    this.doctorService.editDoctorsList(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {

@@ -21,6 +21,7 @@ import { AddPatientComponent } from './patient/add-patient/add-patient.component
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
+import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
 
 
 
@@ -57,6 +58,11 @@ const routes: Routes = [
         path: 'listDoctor',
         component: ListDoctorComponent,
       },
+      {
+        path: 'editDoctor',
+        canDeactivate: [NavigationGuard],
+        component: EditDoctorComponent,
+      },
 
       {
         path: 'addHospitalBranch',
@@ -71,6 +77,7 @@ const routes: Routes = [
         canDeactivate: [NavigationGuard],
         component: EditHospitalBranchComponent,
       },
+
       {
         path: 'addMedicine',
         component: AddMedicineComponent,
