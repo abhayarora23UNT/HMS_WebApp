@@ -17,7 +17,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog
 export class ListHospitalBranchComponent implements OnInit,OnDestroy {
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = [];
-  appointmentColumns: string[] = ['name', 'address1', 'mobileno', 'email', 'city', 'action'];  // table columns
+  appointmentColumns: string[] = ['name', 'address1', 'phone1', 'email', 'city', 'action'];  // table columns
   private onDestroy$: Subject<void> = new Subject<void>();
   constructor(private hospialBranchService: HospitalBranchService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
 
@@ -89,7 +89,7 @@ export class ListHospitalBranchComponent implements OnInit,OnDestroy {
     editAppointment(event: any) {
       let navigationExtras: NavigationExtras = {
         queryParams: {
-          appointmentData: JSON.stringify(event),
+          editHospitalData: JSON.stringify(event),
         },
         skipLocationChange:true
       };
@@ -135,7 +135,7 @@ export class ListHospitalBranchComponent implements OnInit,OnDestroy {
     */
   callDeleteAppointmentApi(respData: any) {
     this.isDataLoading = true;
-    this.hospialBranchService.deleteHospitalBranchList(respData.appointmentId)
+    this.hospialBranchService.deleteHospitalBranchList(respData.hospitalId)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {

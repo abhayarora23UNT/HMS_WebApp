@@ -37,8 +37,10 @@ export class AddHospitalBranchComponent implements OnInit , OnDestroy {
       name: ['', Validators.required],
       address1: ['', Validators.required],
       city: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phone1: ['', Validators.required],
       email: ['', Validators.required],
+      address2:[''],
+      description:['']
     });
   }
 
