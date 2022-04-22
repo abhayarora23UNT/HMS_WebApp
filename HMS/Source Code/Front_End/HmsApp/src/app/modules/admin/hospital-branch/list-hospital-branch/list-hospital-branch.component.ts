@@ -31,7 +31,7 @@ export class ListHospitalBranchComponent implements OnInit,OnDestroy {
   }
 
   /**
-   * Method to get appointment list
+   * Method to get Hospital Branch list
    */
    getHospitalBranchList() {
     this.isDataLoading = true;

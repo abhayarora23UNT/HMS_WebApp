@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
-import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
+import { AdminPatientService } from 'src/app/core/services/admin/admin-patient.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
@@ -19,10 +19,10 @@ export class EditPatientComponent implements OnInit, OnDestroy {
   fgEditPatient!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
-  genderList: any =[];
+  genderList: any = [];
 
   editPatientData: any;
-  constructor(private formBuilder: FormBuilder, private appointmentService: DoctorAppointmentService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private patientService: AdminPatientService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService, private route: ActivatedRoute) {
     this.createFormGroup();
 
@@ -36,12 +36,13 @@ export class EditPatientComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.bindFormData(this.editPatientData);
   }
 
   /**
    * Method called on page destroy
    */
-   ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.onDestroy$.next();
   }
 
@@ -58,37 +59,37 @@ export class EditPatientComponent implements OnInit, OnDestroy {
     });
   }
 
-    /**
-   * Method to bind form data
-   * @param formData 
-   */
-     bindFormData(formData: any) {
-      if (formData) {
-        this.fgEditPatient.patchValue(this.editPatientData);
-      }
+  /**
+ * Method to bind form data
+ * @param formData 
+ */
+  bindFormData(formData: any) {
+    if (formData) {
+      this.fgEditPatient.patchValue(this.editPatientData);
     }
+  }
 
-    navigateToListPatientScreen() {
-      this.router.navigate(['admin/dashboard/listPatient']);
+  navigateToListPatientScreen() {
+    this.router.navigate(['admin/dashboard/listPatient']);
+  }
+
+  editPatient() {
+    if (this.fgEditPatient.status == Constants.FormInvalid) {
+      this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
+    } else {
+      const fgValue = JSON.parse(JSON.stringify(this.fgEditPatient.value));
+      console.log('data is  ' + fgValue);
+      this.callPatientApi(fgValue);
     }
+  }
 
-    editPatient() {
-      if (this.fgEditPatient.status == Constants.FormInvalid) {
-        this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
-      } else {
-        const fgValue = JSON.parse(JSON.stringify(this.fgEditPatient.value));
-        console.log('data is  ' + fgValue);
-        this.callPatientApi(fgValue);
-      }
-    }
-
-       /**
-    * Method to called update appointment api
-    * @param respData 
-    */
-        callPatientApi(respData: any) {
+  /**
+* Method to called update appointment api
+* @param respData 
+*/
+  callPatientApi(respData: any) {
     this.isDataLoading = true;
-    this.appointmentService.editDocAppointment(respData)
+    this.patientService.editPatientsList(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {

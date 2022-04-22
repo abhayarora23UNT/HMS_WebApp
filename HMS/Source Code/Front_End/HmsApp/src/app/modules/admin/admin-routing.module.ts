@@ -20,6 +20,7 @@ import { ListTreatmentComponent } from './treatment/list-treatment/list-treatmen
 import { AddPatientComponent } from './patient/add-patient/add-patient.component';
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
+import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
 
 
 
@@ -103,6 +104,11 @@ const routes: Routes = [
       {
         path: 'listPatient',
         component: ListPatientComponent,
+      },
+      {
+        path: 'editPatient',
+        canDeactivate: [NavigationGuard],
+        component: EditPatientComponent,
       },
 
       {
