@@ -1,10 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
+import { NavigationExtras,Router } from '@angular/router';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
-import { DoctorAppointment } from 'src/app/shared/models/doctor/doctor-appointment-resp-data';
+import { HospitalBranchService } from 'src/app/core/services/admin/hospital-branch.service';
 import { HospitalBranch } from 'src/app/shared/models/hospital/hospital-branch-resp-data';
+import { Messages } from 'src/app/core/messages/messages';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-list-hospital-branch',
@@ -14,39 +17,26 @@ import { HospitalBranch } from 'src/app/shared/models/hospital/hospital-branch-r
 export class ListHospitalBranchComponent implements OnInit,OnDestroy {
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = [];
-  appointmentColumns: string[] = ['name', 'address1', 'mobileno', 'email', 'city', 'action'];  // table columns
+  appointmentColumns: string[] = ['name', 'address1', 'phone1', 'email', 'city', 'action'];  // table columns
   private onDestroy$: Subject<void> = new Subject<void>();
-  constructor(private router: Router, private lookupService: LookupService, private toastService: ToastMessageService) { }
+  constructor(private hospialBranchService: HospitalBranchService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
+
+  }
   ngOnDestroy(): void {
     this.onDestroy$.next();
   }
 
   ngOnInit(): void {
-    this.getHospitalList();
+    this.getHospitalBranchList();
   }
 
   /**
-   * Method to navigate to add appointment screen.
+   * Method to get Hospital Branch list
    */
-  navigateToAppointment() {
-    this.router.navigate(["admin/dashboard/addHospitalBranch"]);
-  }
-
-  editAppointment(data: any) {
-
-  }
-  deleteAppointment(data: any) {
-
-  }
-
-
-  /**
-   * Method to get appointment list
-   */
-  getHospitalList() {
+   getHospitalBranchList() {
     this.isDataLoading = true;
     this.dataSource = [];
-    this.lookupService.getHospitalBranchList()
+    this.hospialBranchService.getHospitalBranchList('')
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
@@ -91,5 +81,88 @@ export class ListHospitalBranchComponent implements OnInit,OnDestroy {
     }
     this.dataSource = respObjLst;
   }
+
+   /**
+   * Method to navigate to edit appointment page
+   * @param event 
+   */
+    editAppointment(event: any) {
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+          editHospitalData: JSON.stringify(event),
+        },
+        skipLocationChange:true
+      };
+      this.router.navigate(['admin/dashboard/editHospitalBranch'], navigationExtras);
+    }
+  
+    /**
+     * Method to delete existing appointment
+     * @param event 
+     */
+    deleteAppointment(event: any) {
+      this.showDeleteAppointmentDialog(event);
+    }
+
+    /**
+   * Method to show delete confirmation dialog
+   * @param data 
+   */
+  showDeleteAppointmentDialog(data: any) {
+    const message = Messages.Dialog_Confirmation_Delete_Message;
+
+    const dialogData = {
+      title: "Delete HospitalBranch",
+      message: message
+    };
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.callDeleteAppointmentApi(data);
+      }
+    });
+
+  }
+
+  /**
+    * Method to called delete appointment api
+    * @param respData 
+    */
+  callDeleteAppointmentApi(respData: any) {
+    this.isDataLoading = true;
+    this.hospialBranchService.deleteHospitalBranchList(respData.hospitalId)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe({
+        next: (retData: any) => {
+          this.isDataLoading = false;
+          if (retData.status) {
+            this.toastService.successMessage(Messages.DeleteHospitalBranchSuccess);
+            this.getHospitalBranchList();
+          } else {
+            this.toastService.errorMessage(retData.message);
+          }
+        },
+        error: (err: any) => {
+          console.log(err);
+          this.isDataLoading = false;
+        },
+        complete: () => {
+          this.isDataLoading = false;
+        }
+      });
+  }
+
+  /**
+   * Method to navigate to add appointment screen.
+   */
+  navigateToAppointment() {
+    this.router.navigate(["admin/dashboard/addHospitalBranch"]);
+  }
+
 
 }

@@ -1,7 +1,7 @@
 <div class="row mt-4 mr-1" >
     <div class="col-12" style="text-align:right">
-        <button class="btn-regular" title="View Hospital-branches" (click)="navigateToListAppointmentScreen()">
-            View Hospital-branches
+        <button class="btn-regular" title="View Hospital-branches" (click)="navigateToListHospitalBranchScreen()">
+            View Hospital Branches
         </button>
     </div>
 </div>
@@ -9,7 +9,7 @@
 <div class="register-wrapper mb-4 mt-4" fxLayout="row" fxLayoutAlign="center center">
 <mat-card class="box">
     <mat-card-header>
-        <mat-card-title>Add Hospital-Branch</mat-card-title>
+        <mat-card-title>Add Hospital Branch</mat-card-title>
     </mat-card-header>
     <form class="register-form" [formGroup]="fgAddHospitalBranch">
         <mat-card-content>
@@ -28,10 +28,10 @@
                 appSpecialCharacters>
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Phone 1" formControlName="phoneNumber" appLimitTo=10 appOnlyNumeric>
+                <input matInput placeholder="Phone 1" formControlName="phone1" required appLimitTo=10 appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Phone 2" formControlName="phoneNumber2" appLimitTo=10 appOnlyNumeric>
+                <input matInput placeholder="Phone 2" formControlName="phone2" appLimitTo=10 appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
                 <input matInput placeholder="Email" formControlName="email" required appLimitTo=20
@@ -42,7 +42,7 @@
             </mat-form-field>
             
         </mat-card-content>
-        <button mat-stroked-button color="primary" class="btn-block" (click)="createAppointment()">Create</button>
+        <button mat-stroked-button color="primary" class="btn-block" (click)="createHospitalBranch()">Create</button>
      
     </form>
 </mat-card>

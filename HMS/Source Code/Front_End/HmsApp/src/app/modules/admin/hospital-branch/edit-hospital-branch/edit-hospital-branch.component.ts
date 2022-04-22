@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
-import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
+import { HospitalBranchService } from 'src/app/core/services/admin/hospital-branch.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
@@ -19,7 +19,7 @@ export class EditHospitalBranchComponent implements OnInit , OnDestroy {
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
   editHospitalData: any;
-  constructor(private formBuilder: FormBuilder, private appointmentService: DoctorAppointmentService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private appointmentService: HospitalBranchService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService, private route: ActivatedRoute) {
     this.createFormGroup();
 
@@ -33,6 +33,7 @@ export class EditHospitalBranchComponent implements OnInit , OnDestroy {
   }
 
   ngOnInit(): void {
+    this.bindFormData(this.editHospitalData);
   }
 
   /**
@@ -54,11 +55,17 @@ export class EditHospitalBranchComponent implements OnInit , OnDestroy {
 
   createFormGroup() {
     this.fgEditHospitalBranch = this.formBuilder.group({
+      hospitalId: [''],
+      hospitalCode:[''],
       name: ['', Validators.required],
       address1: ['', Validators.required],
+      address2:[''],
       city: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phone1: ['', Validators.required],
+      phone2: [''],
       email: ['', Validators.required],
+      description:['']
+
     });
   }
 
@@ -82,7 +89,7 @@ export class EditHospitalBranchComponent implements OnInit , OnDestroy {
     */
      callHospitalApi(respData: any) {
       this.isDataLoading = true;
-      this.appointmentService.editDocAppointment(respData)
+      this.appointmentService.editHospitalBranchList(respData)
         .pipe(takeUntil(this.onDestroy$))
         .subscribe({
           next: (retData: any) => {
