@@ -24,9 +24,11 @@ import { ListPatientComponent } from './patient/list-patient/list-patient.compon
 import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
-// import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
-// import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
-// import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
+import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
+import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
+import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
+import { EditTreatmentComponent } from './treatment/edit-treatment/edit-treatment.component';
+import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type.component';
 
 
 @NgModule({
@@ -54,9 +56,11 @@ import { EditPatientComponent } from './patient/edit-patient/edit-patient.compon
     EditDoctorComponent,
     EditHospitalBranchComponent,
     EditPatientComponent,
-    // AddOperativeComponent,
-    // EditOperativeComponent,
-    // ListOperativeComponent
+    AddOperativeComponent,
+    EditOperativeComponent,
+    ListOperativeComponent,
+    EditTreatmentComponent,
+    EditRoomTypeComponent
   ],
   imports: [
     CommonModule,

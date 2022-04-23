@@ -22,7 +22,11 @@ import { ListPatientComponent } from './patient/list-patient/list-patient.compon
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
 import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
-
+import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
+import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
+import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
+import { EditTreatmentComponent } from './treatment/edit-treatment/edit-treatment.component';
+import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type.component';
 
 
 
@@ -92,8 +96,13 @@ const routes: Routes = [
         component: AddRoomTypeComponent,
       },
       {
-        path: 'listListRoomType',
+        path: 'listRoomType',
         component: ListRoomTypeComponent,
+      },
+      {
+        path: 'editRoomType',
+        canDeactivate: [NavigationGuard],
+        component: EditRoomTypeComponent,
       },
 
       {
@@ -125,6 +134,24 @@ const routes: Routes = [
       {
         path: 'listTreatment',
         component: ListTreatmentComponent,
+      },
+      {
+        path: 'editTreatment',
+        canDeactivate: [NavigationGuard],
+        component: EditTreatmentComponent,
+      },
+      {
+        path: 'addOperativeRoom',
+        component: AddOperativeComponent,
+      },
+      {
+        path: 'listOperativeRoom',
+        component: ListOperativeComponent,
+      },
+      {
+        path: 'editOperativeRoom',
+        canDeactivate: [NavigationGuard],
+        component: EditOperativeComponent,
       },
     ]
   },

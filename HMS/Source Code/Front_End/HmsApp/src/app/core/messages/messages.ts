@@ -49,6 +49,10 @@ export enum Messages {
     UpdatePatientSuccess='Patient Updated  Successfully',
     DeletePatientSuccess='Patient Deleted Successfully',
 
+    CreateRoomSuccess='New Room Type Created Successfully',
+    UpdateRoomSuccess='Room Type Updated  Successfully',
+    DeleteRoomSuccess='Room Type Deleted Successfully',
+
     CreateHospitalBranchSuccess='New Hospital Branch Created Successfully',
     UpdateHospitalBranchSuccess='Hospital Branch Updated  Successfully',
     DeleteHospitalBranchSuccess='Hospital Branch Deleted Successfully',
