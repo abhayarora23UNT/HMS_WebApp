@@ -296,7 +296,7 @@ namespace WebApplication4.UtilityClasses
                 else if(Type== "hospitals") command = "Delete from Hospitals Where HospitalId = " + ID.ToString();
                 else if(Type== "nurse") command = "Delete from Nurses Where NurseId = " + ID.ToString();
                 else if(Type== "patient") command = "Delete from Patients Where PatientId = " + ID.ToString();
-                else if (Type == "Patient") command = "Delete from Patients Where PatientId = " + ID.ToString();
+                else if (Type == "patients") command = "Delete from Patients Where PatientId = " + ID.ToString();
                 else if(Type== "Medicines") command = "Delete from Medicines Where MedicineId = " + ID.ToString();
                 else if(Type== "Service") command = "Delete from servicerooms Where ServiceRoomId = " + ID.ToString();
                 else if(Type== "operativerooms") command = "Delete from operativerooms Where OperativeRoomId = " + ID.ToString();
