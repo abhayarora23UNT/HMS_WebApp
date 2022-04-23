@@ -34,13 +34,13 @@
 
 
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Phone No" formControlName="phoneno">
+                <input matInput placeholder="Phone No" formControlName="phone">
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="field-full-width">
                 <mat-label>Gender</mat-label>
                 <mat-select formControlName="gender" required>
-                    <mat-option *ngFor="let data of genderList" [value]="data.gender">{{data.Name}}</mat-option>
+                    <mat-option *ngFor="let data of genderList" [value]="data">{{data}}</mat-option>
                 </mat-select>
               </mat-form-field>
             <mat-form-field class="field-full-width">

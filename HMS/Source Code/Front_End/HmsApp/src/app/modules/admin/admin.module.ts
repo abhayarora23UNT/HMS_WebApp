@@ -20,10 +20,13 @@ import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatmen
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddPatientComponent } from './patient/add-patient/add-patient.component';
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
-import { OperativeRoomComponent } from './operative-room/operative-room.component';
+
 import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
+import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
+import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
+import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
 
 
 @NgModule({
@@ -47,10 +50,13 @@ import { EditPatientComponent } from './patient/edit-patient/edit-patient.compon
     AdminHomeComponent,
     AddPatientComponent,
     ListPatientComponent,
-    OperativeRoomComponent,
+
     EditDoctorComponent,
     EditHospitalBranchComponent,
-    EditPatientComponent
+    EditPatientComponent,
+    AddOperativeComponent,
+    EditOperativeComponent,
+    ListOperativeComponent
   ],
   imports: [
     CommonModule,

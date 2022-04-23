@@ -41,9 +41,10 @@ export class AddPatientComponent implements OnInit {
     this.fgAddPatient = this.formBuilder.group({
       name: ['', Validators.required],
       address1: ['', Validators.required],
+      address2:[''],
       city: ['', Validators.required],
       email: ['', Validators.required],
-      phoneno: ['', Validators.required],
+      phone: ['', Validators.required],
       disease: [''],
       gender: ['', Validators.required],
     });

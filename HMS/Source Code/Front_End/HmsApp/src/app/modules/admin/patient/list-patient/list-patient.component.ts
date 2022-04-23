@@ -5,7 +5,6 @@ import { NavigationExtras,Router } from '@angular/router';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 import { AdminPatientService} from 'src/app/core/services/admin/admin-patient.service';
-import { HospitalBranch } from 'src/app/shared/models/hospital/hospital-branch-resp-data';
 import { Messages } from 'src/app/core/messages/messages';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { Patient } from 'src/app/shared/models/patient/patient-resp-data';
@@ -17,7 +16,7 @@ import { Patient } from 'src/app/shared/models/patient/patient-resp-data';
 })
 export class ListPatientComponent implements OnInit {
 
-  appointmentColumns: string[] = ['name', 'disease', 'mobileno', 'gender', 'email','action'];
+  appointmentColumns: string[] = ['name', 'disease', 'phone', 'gender', 'email','action'];
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = []; 
   private onDestroy$: Subject<void> = new Subject<void>();
@@ -36,7 +35,7 @@ export class ListPatientComponent implements OnInit {
    editPatient(event: any) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        appointmentData: JSON.stringify(event)
+        editPatientData: JSON.stringify(event)
       },
       skipLocationChange:true
     };
@@ -81,7 +80,6 @@ export class ListPatientComponent implements OnInit {
     for (const row of retData.data.Table) {
       const respObj = new Patient();
       respObj.patientId = row.PatientId;
-      respObj.patientCode = row.PatientCode;
       respObj.name = row.Name;
       respObj.address1 = row.Address1;
       respObj.address2 = row.Address2;
@@ -90,11 +88,13 @@ export class ListPatientComponent implements OnInit {
       respObj.disease = row.Disease;
       respObj.gender = row.Gender;
       respObj.email = row.Email;
+      respObj.guardianPhone = row.GuardianPhone
       respObjLst.push(respObj);
     }
     this.dataSource = respObjLst;
   }
 
+ 
   /**
    * Method to delete existing Patient
    * @param event 
