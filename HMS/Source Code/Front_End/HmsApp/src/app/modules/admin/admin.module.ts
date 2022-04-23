@@ -24,9 +24,9 @@ import { ListPatientComponent } from './patient/list-patient/list-patient.compon
 import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
-import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
-import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
-import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
+// import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
+// import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
+// import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
 
 
 @NgModule({
@@ -54,9 +54,9 @@ import { ListOperativeComponent } from './operative-room-type/list-operative/lis
     EditDoctorComponent,
     EditHospitalBranchComponent,
     EditPatientComponent,
-    AddOperativeComponent,
-    EditOperativeComponent,
-    ListOperativeComponent
+    // AddOperativeComponent,
+    // EditOperativeComponent,
+    // ListOperativeComponent
   ],
   imports: [
     CommonModule,
