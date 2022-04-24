@@ -29,6 +29,9 @@ import { EditOperativeComponent } from './operative-room-type/edit-operative/edi
 import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
 import { EditTreatmentComponent } from './treatment/edit-treatment/edit-treatment.component';
 import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type.component';
+import { AddSpecializationComponent } from './specialization/add-specialization/add-specialization.component';
+import { ListSpecializationComponent } from './specialization/list-specialization/list-specialization.component';
+import { EditSpecializationComponent } from './specialization/edit-specialization/edit-specialization.component';
 
 
 @NgModule({
@@ -60,7 +63,10 @@ import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type
     EditOperativeComponent,
     ListOperativeComponent,
     EditTreatmentComponent,
-    EditRoomTypeComponent
+    EditRoomTypeComponent,
+    AddSpecializationComponent,
+    ListSpecializationComponent,
+    EditSpecializationComponent
   ],
   imports: [
     CommonModule,
