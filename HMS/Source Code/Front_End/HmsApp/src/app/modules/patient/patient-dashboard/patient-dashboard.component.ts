@@ -15,6 +15,7 @@ export class PatientDashboardComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   opened = true;
+  panelOpenState = false;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
