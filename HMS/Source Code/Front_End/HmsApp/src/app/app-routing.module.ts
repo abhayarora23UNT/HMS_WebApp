@@ -22,9 +22,13 @@ const routes: Routes = [
     path: 'doctor',
     loadChildren: () => import('./modules/doctor/doctor.module').then(m => m.DoctorModule)
   },
-   {
+  {
     path: 'patient',
     loadChildren: () => import('./modules/patient/patient.module').then(m => m.PatientModule)
+  },
+  {
+    path: 'staff',
+    loadChildren: () => import('./modules/staff/staff.module').then(m => m.StaffModule)
   },
 ];
 

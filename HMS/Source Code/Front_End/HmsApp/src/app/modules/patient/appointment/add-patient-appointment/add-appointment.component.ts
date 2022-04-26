@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
+import { Constants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
-import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
+import { PatientService } from 'src/app/core/services/patient/patient.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 
@@ -23,7 +23,7 @@ export class AddPatientAppointmentComponent implements OnInit, OnDestroy {
   doctorIdList: any = [];   // dropdown list for doctor Id
   patientIdList: any = [];  // dropdown list for patient Id
 
-  constructor(private formBuilder: FormBuilder, private appointmentService: DoctorAppointmentService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private patientService: PatientService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService) {
     this.createFormGroup();
   }
@@ -80,7 +80,7 @@ export class AddPatientAppointmentComponent implements OnInit, OnDestroy {
     */
   callCreateAppointmentApi(respData: any) {
     this.isDataLoading = true;
-    this.appointmentService.createDocAppointment(respData)
+    this.patientService.createPatientAppointment(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
@@ -108,7 +108,7 @@ export class AddPatientAppointmentComponent implements OnInit, OnDestroy {
    * Method to navigate to appointment list screen
    */
   navigateToListAppointmentScreen() {
-    this.router.navigate(['doctor/dashboard/listAppointment']);
+    this.router.navigate(['patient/dashboard/listPatientAppointment']);
   }
 
   /**
