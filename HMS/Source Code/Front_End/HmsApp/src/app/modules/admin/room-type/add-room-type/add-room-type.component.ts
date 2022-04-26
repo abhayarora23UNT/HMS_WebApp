@@ -14,7 +14,7 @@ import { ToastMessageService } from 'src/app/core/services/utils/toast-message.s
   templateUrl: './add-room-type.component.html',
   styleUrls: ['./add-room-type.component.scss']
 })
-export class AddRoomTypeComponent implements OnInit {
+export class AddRoomTypeComponent implements OnInit,OnDestroy {
 
   fgAddRoomType!: FormGroup;
   isDataLoading = false

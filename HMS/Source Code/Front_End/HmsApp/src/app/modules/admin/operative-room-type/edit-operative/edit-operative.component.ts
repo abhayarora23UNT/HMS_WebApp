@@ -14,7 +14,7 @@ import { ToastMessageService } from 'src/app/core/services/utils/toast-message.s
   templateUrl: './edit-operative.component.html',
   styleUrls: ['./edit-operative.component.scss']
 })
-export class EditOperativeComponent implements OnInit {
+export class EditOperativeComponent implements OnInit,OnDestroy {
 
   fgEditOperative!: FormGroup;
   isDataLoading = false;

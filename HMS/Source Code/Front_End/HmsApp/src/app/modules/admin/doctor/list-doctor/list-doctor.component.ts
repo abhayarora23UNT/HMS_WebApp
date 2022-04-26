@@ -14,7 +14,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog
   templateUrl: './list-doctor.component.html',
   styleUrls: ['./list-doctor.component.scss']
 })
-export class ListDoctorComponent implements OnInit {
+export class ListDoctorComponent implements OnInit,OnDestroy {
   appointmentColumns: string[] = ['name', 'designation', 'phone', 'gender', 'email','action'];
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = []; 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
@@ -12,7 +12,7 @@ import { Doctor } from 'src/app/shared/models/doctor/doctor-resp-data';
   templateUrl: './list-patient-doctors.component.html',
   styleUrls: ['./list-patient-doctors.component.scss']
 })
-export class ListPatientDoctorsComponent implements OnInit {
+export class ListPatientDoctorsComponent implements OnInit,OnDestroy {
 
   appointmentColumns: string[] = ['name', 'designation', 'phone', 'gender', 'email'];
   isDataLoading = false; // flag to hide/show loader

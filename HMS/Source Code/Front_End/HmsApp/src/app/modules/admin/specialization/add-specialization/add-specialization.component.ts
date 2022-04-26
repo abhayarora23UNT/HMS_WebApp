@@ -13,7 +13,7 @@ import { ToastMessageService } from 'src/app/core/services/utils/toast-message.s
   templateUrl: './add-specialization.component.html',
   styleUrls: ['./add-specialization.component.scss']
 })
-export class AddSpecializationComponent implements OnInit {
+export class AddSpecializationComponent implements OnInit,OnDestroy {
 
   Statuss: string[] = [
     'Active',

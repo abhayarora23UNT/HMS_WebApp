@@ -14,7 +14,7 @@ import { ToastMessageService } from 'src/app/core/services/utils/toast-message.s
   templateUrl: './add-patient.component.html',
   styleUrls: ['./add-patient.component.scss']
 })
-export class AddPatientComponent implements OnInit {
+export class AddPatientComponent implements OnInit,OnDestroy {
   Genders: string[] = [
     'Male',
     'Female'

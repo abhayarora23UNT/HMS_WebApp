@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
-import { NavigationExtras,Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
-import { AdminOperativeRoomService} from 'src/app/core/services/admin/admin-operative-room.service';
+import { AdminOperativeRoomService } from 'src/app/core/services/admin/admin-operative-room.service';
 import { Messages } from 'src/app/core/messages/messages';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { Operative } from 'src/app/shared/models/operative/operative-resp-data';
@@ -14,14 +14,17 @@ import { Operative } from 'src/app/shared/models/operative/operative-resp-data';
   templateUrl: './list-operative.component.html',
   styleUrls: ['./list-operative.component.scss']
 })
-export class ListOperativeComponent implements OnInit {
+export class ListOperativeComponent implements OnInit, OnDestroy {
 
-  appointmentColumns: string[] = ['roomTypeId', 'roomNo', 'bedNo','startDate','endDate', 'action'];
+  appointmentColumns: string[] = ['roomTypeId', 'roomNo', 'bedNo', 'startDate', 'endDate', 'action'];
   isDataLoading = false; // flag to hide/show loader
-  dataSource: any = []; 
+  dataSource: any = [];
   private onDestroy$: Subject<void> = new Subject<void>();
   constructor(private operativeService: AdminOperativeRoomService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
 
+  }
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
   }
 
   ngOnInit(): void {
@@ -32,12 +35,12 @@ export class ListOperativeComponent implements OnInit {
    * Method to navigate to edit page 
    * @param event 
    */
-   editOperative(event: any) {
+  editOperative(event: any) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
         editOperativeData: JSON.stringify(event)
       },
-      skipLocationChange:true
+      skipLocationChange: true
     };
     this.router.navigate(['admin/dashboard/editOperativeRoom'], navigationExtras);
   }
@@ -45,7 +48,7 @@ export class ListOperativeComponent implements OnInit {
   /**
    * Method to get Patient list
    */
-   getOperativeRoomList() {
+  getOperativeRoomList() {
     this.isDataLoading = true;
     this.dataSource = [];
     this.operativeService.getOperativeRoomList('')
@@ -75,7 +78,7 @@ export class ListOperativeComponent implements OnInit {
    * Method to parse Patient list response
    * @param retData 
    */
-   parseListResponse(retData: any) {
+  parseListResponse(retData: any) {
     const respObjLst = [];
     for (const row of retData.data.Table) {
       const respObj = new Operative();
@@ -90,45 +93,45 @@ export class ListOperativeComponent implements OnInit {
     this.dataSource = respObjLst;
   }
 
- 
+
   /**
    * Method to delete existing Patient
    * @param event 
    */
-   deleteOperative(event: any) {
+  deleteOperative(event: any) {
     this.showDeleteAppointmentDialog(event);
   }
 
-   /**
-   * Method to show delete confirmation dialog
-   * @param data 
-   */
-    showDeleteAppointmentDialog(data: any) {
-      const message = Messages.Dialog_Confirmation_Delete_Message;
-  
-      const dialogData = {
-        title: "Delete Operative Room",
-        message: message
-      };
-  
-      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        maxWidth: "400px",
-        data: dialogData
-      });
-  
-      dialogRef.afterClosed().subscribe(dialogResult => {
-        if (dialogResult) {
-          this.callDeleteOperativeApi(data);
-        }
-      });
-  
-    }
+  /**
+  * Method to show delete confirmation dialog
+  * @param data 
+  */
+  showDeleteAppointmentDialog(data: any) {
+    const message = Messages.Dialog_Confirmation_Delete_Message;
 
-    /**
-    * Method to called delete Patient api
-    * @param respData 
-    */
-     callDeleteOperativeApi(respData: any) {
+    const dialogData = {
+      title: "Delete Operative Room",
+      message: message
+    };
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.callDeleteOperativeApi(data);
+      }
+    });
+
+  }
+
+  /**
+  * Method to called delete Patient api
+  * @param respData 
+  */
+  callDeleteOperativeApi(respData: any) {
     this.isDataLoading = true;
     this.operativeService.deleteOperativeRoomList(respData.operativeRoomId)
       .pipe(takeUntil(this.onDestroy$))

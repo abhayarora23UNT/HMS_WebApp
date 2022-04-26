@@ -14,7 +14,7 @@ import { ToastMessageService } from 'src/app/core/services/utils/toast-message.s
   templateUrl: './add-operative.component.html',
   styleUrls: ['./add-operative.component.scss']
 })
-export class AddOperativeComponent implements OnInit {
+export class AddOperativeComponent implements OnInit,OnDestroy {
   fgAddOperative!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
@@ -22,8 +22,10 @@ export class AddOperativeComponent implements OnInit {
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService) {
     this.createFormGroup();
 
-}  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+}  
+
+ngOnInit(): void {
+    
   }
   /**
    * Method called on page destroy
