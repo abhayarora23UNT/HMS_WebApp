@@ -4,6 +4,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Messages } from 'src/app/core/messages/messages';
 import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
+import { PatientService } from 'src/app/core/services/patient/patient.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { DoctorAppointment } from 'src/app/shared/models/doctor/doctor-appointment-resp-data';
@@ -20,7 +21,7 @@ export class ListPatientAppointmentComponent implements OnInit, OnDestroy {
   isDataLoading = false; // flag to hide/show loader
   private onDestroy$: Subject<void> = new Subject<void>();
   dataSource: any = [];
-  constructor(private doctorService: DoctorAppointmentService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
+  constructor(private patientService: PatientService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
 
   }
 
@@ -28,7 +29,7 @@ export class ListPatientAppointmentComponent implements OnInit, OnDestroy {
    * Method called on page init
    */
   ngOnInit(): void {
-    this.getDocAppointmentList();
+    this.getPatientAppointmentList();
   }
 
   /**
@@ -41,10 +42,10 @@ export class ListPatientAppointmentComponent implements OnInit, OnDestroy {
   /**
    * Method to get appointment list
    */
-  getDocAppointmentList() {
+   getPatientAppointmentList() {
     this.isDataLoading = true;
     this.dataSource = [];
-    this.doctorService.getDocAppointmentList('')
+    this.patientService.getPatientAppointmentList('')
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
@@ -100,7 +101,7 @@ export class ListPatientAppointmentComponent implements OnInit, OnDestroy {
       },
       skipLocationChange:true
     };
-    this.router.navigate(['doctor/dashboard/editAppointment'], navigationExtras);
+    this.router.navigate(['patient/dashboard/editPatientAppointment'], navigationExtras);
   }
 
   /**
@@ -142,14 +143,14 @@ export class ListPatientAppointmentComponent implements OnInit, OnDestroy {
     */
   callDeleteAppointmentApi(respData: any) {
     this.isDataLoading = true;
-    this.doctorService.deleteDocAppointment(respData.appointmentId)
+    this.patientService.deletePatientAppointment(respData.appointmentId)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
             this.toastService.successMessage(Messages.DeleteDocAppointmentSuccess);
-            this.getDocAppointmentList();
+            this.getPatientAppointmentList();
           } else {
             this.toastService.errorMessage(retData.message);
           }
@@ -168,7 +169,7 @@ export class ListPatientAppointmentComponent implements OnInit, OnDestroy {
    * Method to navigate to add appointment screen.
    */
   navigateToAppointment() {
-    this.router.navigate(["doctor/dashboard/addAppointment"]);
+    this.router.navigate(["patient/dashboard/addPatientAppointment"]);
   }
 
 }

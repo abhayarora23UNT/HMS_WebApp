@@ -6,6 +6,7 @@ import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
 import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
+import { PatientService } from 'src/app/core/services/patient/patient.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 
@@ -24,7 +25,7 @@ export class EditPatientAppointmentComponent implements OnInit, OnDestroy {
   patientIdList: any = [];
 
   appointmentData: any;
-  constructor(private formBuilder: FormBuilder, private appointmentService: DoctorAppointmentService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private patientService: PatientService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService, private route: ActivatedRoute) {
     this.createFormGroup();
 
@@ -105,7 +106,7 @@ export class EditPatientAppointmentComponent implements OnInit, OnDestroy {
     */
   callEditAppointmentApi(respData: any) {
     this.isDataLoading = true;
-    this.appointmentService.editDocAppointment(respData)
+    this.patientService.editPatientAppointment(respData)
       .pipe(takeUntil(this.onDestroy$))
       .subscribe({
         next: (retData: any) => {
@@ -133,7 +134,7 @@ export class EditPatientAppointmentComponent implements OnInit, OnDestroy {
    * Method to navigate to appointment list
    */
   navigateToListAppointmentScreen() {
-    this.router.navigate(['doctor/dashboard/listAppointment']);
+    this.router.navigate(['patient/dashboard/listPatientAppointment']);
   }
 
   /**
