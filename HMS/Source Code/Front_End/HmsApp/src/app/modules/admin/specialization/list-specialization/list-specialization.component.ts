@@ -134,7 +134,7 @@ export class ListSpecializationComponent implements OnInit {
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
-            this.toastService.successMessage(Messages.DeletePatientSuccess);
+            this.toastService.successMessage(Messages.DeleteSpecialization);
             this.getSpecialization();
           } else {
             this.toastService.errorMessage(retData.message);

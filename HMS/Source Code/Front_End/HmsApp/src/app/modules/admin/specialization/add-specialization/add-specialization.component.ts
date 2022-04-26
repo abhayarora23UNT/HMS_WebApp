@@ -66,7 +66,7 @@ this.specializationService.createSpecialization(respData)
     next: (retData: any) => {
       this.isDataLoading = false;
       if (retData.status) {
-        this.toastService.successMessage(Messages.CreatePatientSuccess);
+        this.toastService.successMessage(Messages.createSpecialization);
         this.fgAddSpecialization.markAsPristine();
         this.navigateToSpecializationScreen();
       } else {

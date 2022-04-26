@@ -94,7 +94,7 @@ export class EditSpecializationComponent implements OnInit {
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
-            this.toastService.successMessage(Messages.UpdatePatientSuccess);
+            this.toastService.successMessage(Messages.UpdateSpecialization);
             this.fgEditSpecialization.markAsPristine();
             this.navigateToSpecializationScreen();
           } else {

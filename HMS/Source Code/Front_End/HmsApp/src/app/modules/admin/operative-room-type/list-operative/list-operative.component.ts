@@ -139,7 +139,7 @@ export class ListOperativeComponent implements OnInit, OnDestroy {
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
-            this.toastService.successMessage(Messages.DeletePatientSuccess);
+            this.toastService.successMessage(Messages.DeleteOperativeSuccess);
             this.getOperativeRoomList();
           } else {
             this.toastService.errorMessage(retData.message);

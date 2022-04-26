@@ -68,7 +68,7 @@ this.operativeService.createOperativeRoomList(respData)
     next: (retData: any) => {
       this.isDataLoading = false;
       if (retData.status) {
-        this.toastService.successMessage(Messages.CreatePatientSuccess);
+        this.toastService.successMessage(Messages.CreateOperativeSuccess);
         this.fgAddOperative.markAsPristine();
         this.navigateToOperativeScreen();
       } else {

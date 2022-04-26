@@ -57,6 +57,14 @@ export enum Messages {
     UpdateHospitalBranchSuccess='Hospital Branch Updated  Successfully',
     DeleteHospitalBranchSuccess='Hospital Branch Deleted Successfully',
 
+    createSpecialization='Specialization Created Successfully',
+    UpdateSpecialization='Specialization Updated  Successfully',
+    DeleteSpecialization='Specialization Deleted Successfully',
+
+    CreateOperativeSuccess='New Operative Room Created Successfully',
+    UpdateOperativeSuccess='Operative Room Updated  Successfully',
+    DeleteOperativeSuccess='Operative Room Deleted Successfully',
+
     Password_Validate_Message='New Password and Confirm New Password should be same',
     No_Records_Message='No Records Found',
 }

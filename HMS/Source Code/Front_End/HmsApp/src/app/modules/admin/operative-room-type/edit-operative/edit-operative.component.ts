@@ -97,7 +97,7 @@ export class EditOperativeComponent implements OnInit,OnDestroy {
         next: (retData: any) => {
           this.isDataLoading = false;
           if (retData.status) {
-            this.toastService.successMessage(Messages.UpdatePatientSuccess);
+            this.toastService.successMessage(Messages.UpdateOperativeSuccess);
             this.fgEditOperative.markAsPristine();
             this.navigateToOperativeScreen();
           } else {
