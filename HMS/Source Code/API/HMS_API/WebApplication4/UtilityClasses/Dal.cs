@@ -198,7 +198,7 @@ namespace WebApplication4.UtilityClasses
                 else if (typeof(T) == typeof(Medicine))
                 {
                     Medicine T1 = (Medicine)(object)Request;
-                    command = string.Format("UPDATE Medicines Set Name = '{0}', Company = '{1}', Composition = '{2}', Dosage = '{3}', ExpiryDate = '{4}', Type = '{5}', Description = '{6}', Cost = {7}, AvailableQuantity = {8} WHERE MedicineId = '{9}'", T1.Name, T1.Company, T1.Composition, T1.Dosage, T1.ExpiryDate, T1.Type, T1.Description, T1.Cost, T1.AvailabelQuantity, T1.MedicineId);
+                    command = string.Format("UPDATE Medicines Set Name = '{0}', Company = '{1}', Composition = '{2}', Dosage = '{3}', ExpiryDate = '{4}', Type = '{5}', Description = '{6}', Cost = {7}, AvailableQuantity = {8} WHERE MedicineId = '{9}'", T1.Name, T1.Company, T1.Composition, T1.Dosage, T1.ExpiryDate.ToString("yyyy-MM-dd"), T1.Type, T1.Description, T1.Cost, T1.AvailabelQuantity, T1.MedicineId);
                 }
                 else if (typeof(T) == typeof(Service))
                 {
@@ -208,7 +208,7 @@ namespace WebApplication4.UtilityClasses
                 else if (typeof(T) == typeof(OperativeRoom))
                 {
                     OperativeRoom T1 = (OperativeRoom)(object)Request;
-                    command = string.Format("UPDATE operativerooms Set RoomTypeId = {0}, RoomNo = '{1}', BedNo = '{2}', StartDate = '{3}', EndDate= '{4}', HospitalId = {5} WHERE OperativeRoomId = '{6}'", T1.RoomTypeId, T1.RoomNo, T1.BedNo, T1.StartDate, T1.EndDate, T1.HospitalId,  T1.OperativeRoomId);
+                    command = string.Format("UPDATE operativerooms Set RoomTypeId = {0}, RoomNo = '{1}', BedNo = '{2}', StartDate = '{3}', EndDate= '{4}', HospitalId = {5} WHERE OperativeRoomId = '{6}'", T1.RoomTypeId, T1.RoomNo, T1.BedNo, T1.StartDate.ToString("yyyy-MM-dd"), T1.EndDate.ToString("yyyy-MM-dd"), T1.HospitalId,  T1.OperativeRoomId);
                 }
                 else if (typeof(T) == typeof(TreatmentMedicine))
                 {
