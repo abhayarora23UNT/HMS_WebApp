@@ -78,7 +78,14 @@ export class EditSpecializationComponent implements OnInit {
     } else {
       const fgValue = JSON.parse(JSON.stringify(this.fgEditSpecialization.value));
       console.log('data is  ' + fgValue);
-      this.callPatientApi(fgValue);
+      const dataObject = {
+        "name": this.fgEditSpecialization.controls['name'].value,
+        "keyArea": this.fgEditSpecialization.controls['KeyAres'].value,
+        "status": this.fgEditSpecialization.controls['status'].value,
+        "specializationId":this.fgEditSpecialization.controls['specializationId'].value,
+
+      }
+      this.callPatientApi(dataObject);
     }
   }
 

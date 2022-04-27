@@ -4,7 +4,7 @@ export class medicine {
     name: string;
     company: string;
     composition: string;
-    expiryDate: number;
+    expiryDate: any;
     dosage:string;
     type:string;
     description:string;
@@ -21,7 +21,7 @@ export class medicine {
         this.composition ='';
         this.dosage ='';
         this.company ='';
-        this.expiryDate = 0;
+        this.expiryDate = '';
         this.type = '';
         this.description='';
         this.cost=0;

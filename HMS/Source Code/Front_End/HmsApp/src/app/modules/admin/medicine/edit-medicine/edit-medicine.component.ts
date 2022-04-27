@@ -43,10 +43,12 @@ export class EditMedicineComponent implements OnInit {
       composition: ['', Validators.required],
       dosage:['', Validators.required],
       expiryDate:['', Validators.required],
-      // type:['', Validators.required],
+      type:['', Validators.required],
       description:['', Validators.required],
       cost:['', Validators.required],
       availabelQuantity:['', Validators.required],
+      medicineId: [''],
+      medicineCode:[''],
       
     });
     }
