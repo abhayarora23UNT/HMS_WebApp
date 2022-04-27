@@ -11,6 +11,7 @@ import { AddHospitalBranchComponent } from './hospital-branch/add-hospital-branc
 import { ListHospitalBranchComponent } from './hospital-branch/list-hospital-branch/list-hospital-branch.component';
 import { AddMedicineComponent } from './medicine/add-medicine/add-medicine.component';
 import { ListMedicineComponent } from './medicine/list-medicine/list-medicine.component';
+import { EditMedicineComponent } from './medicine/edit-medicine/edit-medicine.component';
 import { AddRoomTypeComponent } from './room-type/add-room-type/add-room-type.component';
 import { ListRoomTypeComponent } from './room-type/list-room-type/list-room-type.component';
 import { AddStaffComponent } from './staff/add-staff/add-staff.component';
@@ -106,7 +107,11 @@ const routes: Routes = [
         path: 'listMedicine',
         component: ListMedicineComponent,
       },
-
+      {
+        path: 'editMedicine',
+        canDeactivate: [NavigationGuard],
+        component: EditMedicineComponent,
+      },
       {
         path: 'addRoomType',
         component: AddRoomTypeComponent,

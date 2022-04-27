@@ -65,6 +65,10 @@ export enum Messages {
     UpdateOperativeSuccess='Operative Room Updated  Successfully',
     DeleteOperativeSuccess='Operative Room Deleted Successfully',
 
+    CreateMedicineSuccess='New Medicine Created Successfully',
+    UpdateMedicineSuccess='Medicine Updated  Successfully',
+    DeleteMedicineSuccess='Medicine Deleted Successfully',
+
     Password_Validate_Message='New Password and Confirm New Password should be same',
     No_Records_Message='No Records Found',
 }

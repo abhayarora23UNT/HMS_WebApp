@@ -72,6 +72,10 @@ export class EndPointService {
   editSpecialization = 'api/Specializations/Editspecializations';
   deleteSpecialization = 'api/Specializations/DeleteSpecializations';
 
+  createMedicinesList='api/Medicines/CreateMedicines';
+  editMedicinesList='api/Medicines/EditMedicines';
+  deleteMedicinesList='api/Medicines/DeleteMedicines';
+
 
 
 

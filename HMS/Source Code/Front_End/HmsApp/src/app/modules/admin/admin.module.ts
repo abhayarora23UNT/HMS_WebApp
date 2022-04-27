@@ -32,6 +32,7 @@ import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type
 import { AddSpecializationComponent } from './specialization/add-specialization/add-specialization.component';
 import { ListSpecializationComponent } from './specialization/list-specialization/list-specialization.component';
 import { EditSpecializationComponent } from './specialization/edit-specialization/edit-specialization.component';
+import { EditMedicineComponent } from './medicine/edit-medicine/edit-medicine.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { EditSpecializationComponent } from './specialization/edit-specializatio
     EditRoomTypeComponent,
     AddSpecializationComponent,
     ListSpecializationComponent,
-    EditSpecializationComponent
+    EditSpecializationComponent,
+    EditMedicineComponent
   ],
   imports: [
     CommonModule,
