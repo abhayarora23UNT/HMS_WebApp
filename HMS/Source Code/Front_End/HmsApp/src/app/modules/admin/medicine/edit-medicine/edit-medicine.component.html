@@ -1,4 +1,3 @@
-<p>edit-medicine works!</p>
 <div class="row mt-4 mr-1">
     <div class="col-12" style="text-align:right">
         <button class="btn-regular" title="View Appointment" (click)="navigateToMedicineScreen()">
@@ -21,7 +20,8 @@
                     <input matInput placeholder="Company" formControlName="company" required appSpecialCharacters>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Composition" formControlName="composition" required appSpecialCharacters>
+                    <input matInput placeholder="Composition" formControlName="composition" required
+                        appSpecialCharacters>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
                     <input matInput placeholder="Dosage" formControlName="dosage" required appSpecialCharacters>
@@ -33,8 +33,8 @@
                     <mat-datepicker-toggle matSuffix [for]="StartDatePicker">
                     </mat-datepicker-toggle>
                     <mat-datepicker #StartDatePicker></mat-datepicker>
-                    </mat-form-field>
-                    <!-- <mat-form-field class="field-full-width">
+                </mat-form-field>
+                <!-- <mat-form-field class="field-full-width">
                         <input matInput placeholder="Type" formControlName="type" required appSpecialCharacters>
                     </mat-form-field> -->
                 <mat-form-field class="field-full-width">
