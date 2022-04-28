@@ -19,39 +19,39 @@ export class StaffHomeComponent implements OnInit {
     const dataList: any = [
       {
         "icon": "folder_special",
-        "count": 10,
+        // "count": 10,
         "title": "Pending Treatments",
         "color": "red"
       },
       {
         "icon": "medication",
-        "count": 5,
+        // "count": 5,
         "title": "Appointment Medicines",
         "color": "blue"
       },
       {
         "icon": "medication",
-        "count": 2,
+        // "count": 2,
         "title": "Treatment Medicines",
         "color": "green"
       },
       {
         "icon": "medication",
-        "count": 6,
+        // "count": 6,
         "title": "Medicines",
         "color": "black"
       },
 
       {
         "icon": "access_time",
-        "count": 6,
+        // "count": 6,
         "title": "Active Appointments",
         "color": "black"
       },
      
       {
         "icon": "timelapse",
-        "count": 8,
+        // "count": 8,
         "title": "Pending Appointments",
         "color": "black"
       },

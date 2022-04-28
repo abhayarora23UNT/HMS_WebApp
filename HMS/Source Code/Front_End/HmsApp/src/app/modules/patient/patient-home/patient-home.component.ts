@@ -19,39 +19,39 @@ export class PatientHomeComponent implements OnInit {
     const dataList: any = [
       {
         "icon": "folder_special",
-        "count": 3,
+        // "count": 3,
         "title": "Pending Treatments",
         "color": "red"
       },
       {
         "icon": "access_time",
-        "count": 5,
+        // "count": 5,
         "title": "Appointment Medicines",
         "color": "blue"
       },
       {
         "icon": "medication",
-        "count": 2,
+        // "count": 2,
         "title": "Treatment Medicines",
         "color": "green"
       },
       {
         "icon": "medication",
-        "count": 3,
+        // "count": 3,
         "title": "Medicines",
         "color": "black"
       },
 
       {
         "icon": "access_time",
-        "count": 2,
+        // "count": 2,
         "title": "Active Appointments",
         "color": "black"
       },
      
       {
         "icon": "timelapse",
-        "count": 4,
+        // "count": 4,
         "title": "Pending Appointments",
         "color": "black"
       },

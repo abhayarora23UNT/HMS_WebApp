@@ -21,26 +21,26 @@ export class DocHomeComponent implements OnInit {
       
       {
         "icon": "person",
-        "count": 2,
+        // "count": 2,
         "title": "Patients",
         "color": "green"
       },
     
       {
         "icon": "access_time",
-        "count": 8,
+        // "count": 8,
         "title": "Active Appointments",
         "color": "green"
       },
       {
         "icon": "timelapse",
-        "count": 5,
+        // "count": 5,
         "title": "Pending Appointments",
         "color": "black"
       },
       {
         "icon": "medication",
-        "count": 6,
+        // "count": 6,
         "title": "Medicines",
         "color": "black"
       },
