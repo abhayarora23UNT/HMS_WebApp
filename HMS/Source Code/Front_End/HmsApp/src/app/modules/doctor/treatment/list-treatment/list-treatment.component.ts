@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { NavigationExtras, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Messages } from 'src/app/core/messages/messages';
-
 import { TreatmentService } from 'src/app/core/services/doctor/doctor-treatment.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
