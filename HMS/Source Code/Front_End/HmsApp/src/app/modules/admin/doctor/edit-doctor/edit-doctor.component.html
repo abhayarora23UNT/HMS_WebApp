@@ -15,7 +15,7 @@
             <mat-card-content>
                 <mat-form-field class="field-full-width">
                     <input matInput placeholder="First Name" formControlName="name" required appLimitTo=13
-                        appSpecialCharacters>
+                    appOnlyAlphabets>
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
@@ -27,7 +27,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="City" formControlName="city" required appSpecialCharacters>
+                    <input matInput placeholder="City" formControlName="city" required appOnlyAlphabets>
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
@@ -35,7 +35,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Phone No" formControlName="phone">
+                    <input matInput placeholder="Phone No"  formControlName="phone" maxlength="10" appOnlyNumeric required>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="field-full-width">

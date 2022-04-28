@@ -14,15 +14,15 @@
     <form class="register-form" [formGroup]="fgEditOperative">
         <mat-card-content>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="RoomTypeId" formControlName="roomTypeId" required appLimitTo=13
+                <input matInput placeholder="RoomTypeId" formControlName="roomTypeId" required appOnlyNumeric appLimitTo=13
                 appSpecialCharacters>
             </mat-form-field>
             
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="RoomNo" formControlName="roomNo" required appSpecialCharacters>
+                <input matInput placeholder="RoomNo" formControlName="roomNo" required appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="BedNo" formControlName="bedNo" required appSpecialCharacters>
+                <input matInput placeholder="BedNo" formControlName="bedNo" required appOnlyNumeric>
             </mat-form-field>
             <mat-form-field appearance="outline" class="field-full-width">
                 <mat-label>Start Date</mat-label>

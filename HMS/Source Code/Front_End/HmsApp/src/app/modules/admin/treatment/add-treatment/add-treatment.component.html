@@ -18,14 +18,14 @@
         <form class="register-form" [formGroup]="AddTreatment">
             <mat-card-content>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Name" formControlName="name">
+                    <input matInput placeholder="Name" formControlName="name" appOnlyAlphabets required>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Duration" formControlName="duration" appNumericWithDot>
+                    <input matInput placeholder="Duration" formControlName="duration" appOnlyNumeric>
                 </mat-form-field>
                 <mat-form-field class="field-full-width">
                     <mat-label>OperativeRoomId</mat-label>
-                    <mat-select formControlName="operativeRoomId" required>
+                    <mat-select formControlName="operativeRoomId" required appOnlyNumeric>
                         <mat-option [value]="data.OperativeRoomId" *ngFor="let data of operativeRoomIdList">{{data.OperativeRoomCode}}
                         </mat-option>
                     </mat-select>
@@ -33,7 +33,7 @@
 
                 <mat-form-field class="field-full-width">
                     <mat-label>Doctor Id</mat-label>
-                    <mat-select formControlName="doctorId" required>
+                    <mat-select formControlName="doctorId" required appOnlyNumeric>
                         <mat-option [value]="data.DoctorId" *ngFor="let data of doctorIdList">{{data.Name}}
                         </mat-option>
                     </mat-select>
@@ -41,7 +41,7 @@
 
                 <mat-form-field class="field-full-width">
                     <mat-label>Patient Id</mat-label>
-                    <mat-select formControlName="patientId" required>
+                    <mat-select formControlName="patientId" required appOnlyNumeric>
                         <mat-option [value]="data.PatientId" *ngFor="let data of patientIdList">{{data.Name}}
                         </mat-option>
                     </mat-select>

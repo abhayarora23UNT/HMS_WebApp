@@ -14,7 +14,7 @@
     <form class="register-form" [formGroup]="fgAddHospitalBranch">
         <mat-card-content>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Name" formControlName="name" required appLimitTo=13
+                <input matInput placeholder="Name" formControlName="name" appOnlyAlphabets required appLimitTo=13
                 appSpecialCharacters>
             </mat-form-field>
             <mat-form-field class="field-full-width">
@@ -24,14 +24,14 @@
                 <input matInput placeholder="Address2" formControlName="address2">
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="City" formControlName="city" required appLimitTo=13
+                <input matInput placeholder="City" formControlName="city" appOnlyAlphabets required appLimitTo=13
                 appSpecialCharacters>
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Phone 1" formControlName="phone1" required appLimitTo=10 appOnlyNumeric>
+                <input matInput placeholder="Phone 1" formControlName="phone1" maxlength="10" required appLimitTo=10 appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
-                <input matInput placeholder="Phone 2" formControlName="phone2" appLimitTo=10 appOnlyNumeric>
+                <input matInput placeholder="Phone 2" formControlName="phone2" maxlength="10" appLimitTo=10 appOnlyNumeric>
             </mat-form-field>
             <mat-form-field class="field-full-width">
                 <input matInput placeholder="Email" formControlName="email" required appLimitTo=20
