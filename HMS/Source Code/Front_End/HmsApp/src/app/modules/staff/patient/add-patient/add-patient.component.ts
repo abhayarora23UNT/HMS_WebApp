@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
-import { AdminPatientService } from 'src/app/core/services/admin/admin-patient.service';
+import { StaffPatientService } from 'src/app/core/services/staff/staff-patient.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
@@ -23,7 +23,7 @@ export class AddPatientComponent implements OnInit {
   fgAddPatient!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
-  constructor(private formBuilder: FormBuilder, private PatientService: AdminPatientService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private PatientService: StaffPatientService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService) {
     this.createFormGroup();
   }

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NavigationExtras, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Messages } from 'src/app/core/messages/messages';
-import { DoctorAppointmentService } from 'src/app/core/services/doctor/doctor-apppointment.service';
+import { StaffAppointmentService } from 'src/app/core/services/staff/staff-appointment.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { DoctorAppointment } from 'src/app/shared/models/doctor/doctor-appointment-resp-data';
@@ -18,7 +18,7 @@ export class StaffListPatientAppointmentsComponent implements OnInit, OnDestroy 
   isDataLoading = false; // flag to hide/show loader
   private onDestroy$: Subject<void> = new Subject<void>();
   dataSource: any = [];
-  constructor(private doctorService: DoctorAppointmentService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
+  constructor(private doctorService: StaffAppointmentService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
   }
   ngOnInit(): void {
     this.getDocAppointmentList();

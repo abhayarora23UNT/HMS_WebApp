@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
-import { AdminMedicineService } from 'src/app/core/services/admin/admin-medicine.service';
+import { StaffMedicineService } from 'src/app/core/services/staff/staff-medicine.service';
 import { Messages } from 'src/app/core/messages/messages';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { medicine } from 'src/app/shared/models/medicines/medicine-resp-data';
@@ -20,7 +20,7 @@ export class StaffListPatientMedicinesComponent implements OnInit {
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = [];
   private onDestroy$: Subject<void> = new Subject<void>();
-  constructor(private medicineService: AdminMedicineService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {}
+  constructor(private medicineService: StaffMedicineService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getMedicinesList();

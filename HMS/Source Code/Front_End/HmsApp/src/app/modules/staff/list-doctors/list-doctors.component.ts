@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { NavigationExtras,Router } from '@angular/router';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
-import { AdminDoctorService } from 'src/app/core/services/admin/admin-doctor.service';
+import { StaffDoctorService } from 'src/app/core/services/staff/staff-doctor.service';
 import { Doctor } from 'src/app/shared/models/doctor/doctor-resp-data';
 import { Messages } from 'src/app/core/messages/messages';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
@@ -20,7 +20,7 @@ export class ListDoctorsComponent implements OnInit {
   isDataLoading = false; // flag to hide/show loader
   dataSource: any = []; 
   private onDestroy$: Subject<void> = new Subject<void>();
-  constructor(private router: Router, private doctorService: AdminDoctorService, private lookupService: LookupService, private toastService: ToastMessageService,private dialog: MatDialog) { }
+  constructor(private router: Router, private doctorService: StaffDoctorService, private lookupService: LookupService, private toastService: ToastMessageService,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getDoctorsList();

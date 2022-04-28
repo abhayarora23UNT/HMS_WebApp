@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
-import { AdminPatientService } from 'src/app/core/services/admin/admin-patient.service';
+import { StaffPatientService } from 'src/app/core/services/staff/staff-patient.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { CommonUtilsService } from 'src/app/core/services/utils/common-utils.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
@@ -25,7 +25,7 @@ export class EditPatientComponent implements OnInit {
   ]
 
   editPatientData: any;
-  constructor(private formBuilder: FormBuilder, private patientService: AdminPatientService, private toastService: ToastMessageService,
+  constructor(private formBuilder: FormBuilder, private patientService: StaffPatientService, private toastService: ToastMessageService,
     private router: Router, private lookupService: LookupService, private commonUtilsService: CommonUtilsService, private route: ActivatedRoute) {
     this.createFormGroup();
 
