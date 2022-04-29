@@ -16,5 +16,8 @@ Database - HMS\Source Code\Database
 
 Front End - HMS\Source Code\Front_End
 
+E2E Test Cases - HMS\Testing
+
+
 
 Note:Refer 'main' branch in GitHub Repo for Assessment
