@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
-import { NavigationExtras,Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
 import { ToastMessageService } from 'src/app/core/services/utils/toast-message.service';
-import { AdminPatientService} from 'src/app/core/services/admin/admin-patient.service';
-import { HospitalBranch } from 'src/app/shared/models/hospital/hospital-branch-resp-data';
+import { AdminPatientService } from 'src/app/core/services/admin/admin-patient.service';
 import { Messages } from 'src/app/core/messages/messages';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { Patient } from 'src/app/shared/models/patient/patient-resp-data';
@@ -15,14 +14,17 @@ import { Patient } from 'src/app/shared/models/patient/patient-resp-data';
   templateUrl: './list-patient.component.html',
   styleUrls: ['./list-patient.component.scss']
 })
-export class ListPatientComponent implements OnInit {
+export class ListPatientComponent implements OnInit, OnDestroy {
 
-  appointmentColumns: string[] = ['name', 'disease', 'mobileno', 'gender', 'email','action'];
+  appointmentColumns: string[] = ['name', 'disease', 'phone', 'gender', 'email', 'action'];
   isDataLoading = false; // flag to hide/show loader
-  dataSource: any = []; 
+  dataSource: any = [];
   private onDestroy$: Subject<void> = new Subject<void>();
   constructor(private patientService: AdminPatientService, private toastService: ToastMessageService, private router: Router, private dialog: MatDialog) {
 
+  }
+  ngOnDestroy(): void {
+    this.onDestroy$.next();
   }
 
   ngOnInit(): void {
@@ -33,12 +35,12 @@ export class ListPatientComponent implements OnInit {
    * Method to navigate to edit page 
    * @param event 
    */
-   editPatient(event: any) {
+  editPatient(event: any) {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        appointmentData: JSON.stringify(event)
+        editPatientData: JSON.stringify(event)
       },
-      skipLocationChange:true
+      skipLocationChange: true
     };
     this.router.navigate(['admin/dashboard/editPatient'], navigationExtras);
   }
@@ -46,7 +48,7 @@ export class ListPatientComponent implements OnInit {
   /**
    * Method to get Patient list
    */
-   getPatientsList() {
+  getPatientsList() {
     this.isDataLoading = true;
     this.dataSource = [];
     this.patientService.getPatientsList('')
@@ -76,12 +78,11 @@ export class ListPatientComponent implements OnInit {
    * Method to parse Patient list response
    * @param retData 
    */
-   parseListResponse(retData: any) {
+  parseListResponse(retData: any) {
     const respObjLst = [];
     for (const row of retData.data.Table) {
       const respObj = new Patient();
       respObj.patientId = row.PatientId;
-      respObj.patientCode = row.PatientCode;
       respObj.name = row.Name;
       respObj.address1 = row.Address1;
       respObj.address2 = row.Address2;
@@ -90,10 +91,12 @@ export class ListPatientComponent implements OnInit {
       respObj.disease = row.Disease;
       respObj.gender = row.Gender;
       respObj.email = row.Email;
+      respObj.guardianPhone = row.GuardianPhone
       respObjLst.push(respObj);
     }
     this.dataSource = respObjLst;
   }
+
 
   /**
    * Method to delete existing Patient
@@ -103,36 +106,36 @@ export class ListPatientComponent implements OnInit {
     this.showDeleteAppointmentDialog(event);
   }
 
-   /**
-   * Method to show delete confirmation dialog
-   * @param data 
-   */
-    showDeleteAppointmentDialog(data: any) {
-      const message = Messages.Dialog_Confirmation_Delete_Message;
-  
-      const dialogData = {
-        title: "Delete Patient",
-        message: message
-      };
-  
-      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        maxWidth: "400px",
-        data: dialogData
-      });
-  
-      dialogRef.afterClosed().subscribe(dialogResult => {
-        if (dialogResult) {
-          this.callDeletePatientApi(data);
-        }
-      });
-  
-    }
+  /**
+  * Method to show delete confirmation dialog
+  * @param data 
+  */
+  showDeleteAppointmentDialog(data: any) {
+    const message = Messages.Dialog_Confirmation_Delete_Message;
 
-    /**
-    * Method to called delete Patient api
-    * @param respData 
-    */
-     callDeletePatientApi(respData: any) {
+    const dialogData = {
+      title: "Delete Patient",
+      message: message
+    };
+
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    });
+
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      if (dialogResult) {
+        this.callDeletePatientApi(data);
+      }
+    });
+
+  }
+
+  /**
+  * Method to called delete Patient api
+  * @param respData 
+  */
+  callDeletePatientApi(respData: any) {
     this.isDataLoading = true;
     this.patientService.deletePatientsList(respData.patientId)
       .pipe(takeUntil(this.onDestroy$))

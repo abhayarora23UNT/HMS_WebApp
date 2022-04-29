@@ -1,5 +1,8 @@
 export class Patient {
     patientId: number;
+    specializationId:number;
+    status: string;
+    KeyAres: string;
     patientCode: string;
     name: string;
     address1: string;
@@ -14,6 +17,9 @@ export class Patient {
 
     constructor() {
         this.patientId = 0;
+        this.specializationId=0;
+        this.status ='';
+        this.KeyAres ='';
         this.patientCode = '';
         this.name = '';
         this.address1 = '';

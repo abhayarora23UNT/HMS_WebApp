@@ -19,7 +19,10 @@ export class EditPatientComponent implements OnInit, OnDestroy {
   fgEditPatient!: FormGroup;
   isDataLoading = false;
   private onDestroy$: Subject<void> = new Subject<void>();
-  genderList: any = [];
+  genderList: string[] = [
+    'Male',
+    'Female'
+  ]
 
   editPatientData: any;
   constructor(private formBuilder: FormBuilder, private patientService: AdminPatientService, private toastService: ToastMessageService,
@@ -45,17 +48,21 @@ export class EditPatientComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.onDestroy$.next();
   }
-
+ 
 
   createFormGroup() {
-    this.editPatientData = this.formBuilder.group({
+    this.fgEditPatient = this.formBuilder.group({
       name: ['', Validators.required],
       address1: ['', Validators.required],
+      address2:[''],
       city: ['', Validators.required],
       email: ['', Validators.required],
-      phoneno: ['', Validators.required],
+      phone: ['', Validators.required],
       disease: [''],
+      guardianPhone:[''],
       gender: ['', Validators.required],
+      patientId:[''],
+      patientCode:[''],
     });
   }
 

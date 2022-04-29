@@ -86,5 +86,17 @@ export class LookupService {
           catchError((err) => this.commonUtilsProvider.catchError(err))
         );
     }
+     /**
+   * Function will get Operative Room List
+   */
+
+      getOperativeRoomList(): Observable<any> {
+      return this.baseHttp.post(this.endpoint.getOperativeRoomList,'')
+        .pipe(
+          timeout(ModuleConstants.apiTimeout),
+          map((res) => this.commonUtilsProvider.extractData(res)),
+          catchError((err) => this.commonUtilsProvider.catchError(err))
+        );
+    }
 
 }

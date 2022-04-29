@@ -122,6 +122,12 @@ export class LoginComponent implements OnInit, OnDestroy {
       case 'Doctor':
         routerPath = 'doctor';
         break
+      case 'Patient':
+          routerPath = 'patient';
+          break
+      case 'Staff':
+          routerPath = 'staff';
+          break
 
       // add cases later //
       default:

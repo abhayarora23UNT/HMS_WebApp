@@ -11,6 +11,7 @@ import { AddHospitalBranchComponent } from './hospital-branch/add-hospital-branc
 import { ListHospitalBranchComponent } from './hospital-branch/list-hospital-branch/list-hospital-branch.component';
 import { AddMedicineComponent } from './medicine/add-medicine/add-medicine.component';
 import { ListMedicineComponent } from './medicine/list-medicine/list-medicine.component';
+import { EditMedicineComponent } from './medicine/edit-medicine/edit-medicine.component';
 import { AddRoomTypeComponent } from './room-type/add-room-type/add-room-type.component';
 import { ListRoomTypeComponent } from './room-type/list-room-type/list-room-type.component';
 import { AddStaffComponent } from './staff/add-staff/add-staff.component';
@@ -21,7 +22,15 @@ import { AddPatientComponent } from './patient/add-patient/add-patient.component
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
-
+import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
+import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
+import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
+import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
+import { EditTreatmentComponent } from './treatment/edit-treatment/edit-treatment.component';
+import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type.component';
+import { AddSpecializationComponent } from './specialization/add-specialization/add-specialization.component';
+import { ListSpecializationComponent } from './specialization/list-specialization/list-specialization.component';
+import { EditSpecializationComponent } from './specialization/edit-specialization/edit-specialization.component';
 
 
 
@@ -57,6 +66,24 @@ const routes: Routes = [
         path: 'listDoctor',
         component: ListDoctorComponent,
       },
+      {
+        path: 'editDoctor',
+        canDeactivate: [NavigationGuard],
+        component: EditDoctorComponent,
+      },
+      {
+        path: 'addSpecialization',
+        component: AddSpecializationComponent,
+      },
+      {
+        path: 'listSpecialization',
+        component: ListSpecializationComponent,
+      },
+      {
+        path: 'editSpecialization',
+        canDeactivate: [NavigationGuard],
+        component: EditSpecializationComponent,
+      },
 
       {
         path: 'addHospitalBranch',
@@ -71,6 +98,7 @@ const routes: Routes = [
         canDeactivate: [NavigationGuard],
         component: EditHospitalBranchComponent,
       },
+
       {
         path: 'addMedicine',
         component: AddMedicineComponent,
@@ -79,14 +107,23 @@ const routes: Routes = [
         path: 'listMedicine',
         component: ListMedicineComponent,
       },
-
+      {
+        path: 'editMedicine',
+        canDeactivate: [NavigationGuard],
+        component: EditMedicineComponent,
+      },
       {
         path: 'addRoomType',
         component: AddRoomTypeComponent,
       },
       {
-        path: 'listListRoomType',
+        path: 'listRoomType',
         component: ListRoomTypeComponent,
+      },
+      {
+        path: 'editRoomType',
+        canDeactivate: [NavigationGuard],
+        component: EditRoomTypeComponent,
       },
 
       {
@@ -118,6 +155,24 @@ const routes: Routes = [
       {
         path: 'listTreatment',
         component: ListTreatmentComponent,
+      },
+      {
+        path: 'editTreatment',
+        canDeactivate: [NavigationGuard],
+        component: EditTreatmentComponent,
+      },
+      {
+        path: 'addOperativeRoom',
+        component: AddOperativeComponent,
+      },
+      {
+        path: 'listOperativeRoom',
+        component: ListOperativeComponent,
+      },
+      {
+        path: 'editOperativeRoom',
+        canDeactivate: [NavigationGuard],
+        component: EditOperativeComponent,
       },
     ]
   },

@@ -14,7 +14,7 @@ import { ToastMessageService } from 'src/app/core/services/utils/toast-message.s
   templateUrl: './add-patient.component.html',
   styleUrls: ['./add-patient.component.scss']
 })
-export class AddPatientComponent implements OnInit {
+export class AddPatientComponent implements OnInit,OnDestroy {
   Genders: string[] = [
     'Male',
     'Female'
@@ -41,9 +41,10 @@ export class AddPatientComponent implements OnInit {
     this.fgAddPatient = this.formBuilder.group({
       name: ['', Validators.required],
       address1: ['', Validators.required],
+      address2:[''],
       city: ['', Validators.required],
       email: ['', Validators.required],
-      phoneno: ['', Validators.required],
+      phone: ['', Validators.required],
       disease: [''],
       gender: ['', Validators.required],
     });

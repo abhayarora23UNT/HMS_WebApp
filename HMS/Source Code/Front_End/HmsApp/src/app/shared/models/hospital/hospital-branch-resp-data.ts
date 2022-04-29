@@ -1,6 +1,7 @@
 export class HospitalBranch {
     hospitalId: number;
-    hospitalCode:string
+    roomTypeId:number;
+    hospitalCode:string;
     name: string;
     address1: string;
     address2: string;
@@ -13,6 +14,7 @@ export class HospitalBranch {
 
     constructor() {
         this.hospitalId=0;
+        this.roomTypeId=0;
         this.hospitalCode='';
         this.name = '';
         this.address1 = '';

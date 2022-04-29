@@ -19,39 +19,39 @@ export class AdminHomeComponent implements OnInit {
     const dataList: any = [
       {
         "icon": "folder_special",
-        "count": 10,
+        // "count": 10,
         "title": "Specializations",
         "color": "red"
       },
       {
         "icon": "supervisor_account",
-        "count": 5,
+        // "count": 5,
         "title": "Doctors",
         "color": "blue"
       },
       {
         "icon": "person",
-        "count": 2,
+        // "count": 2,
         "title": "Patients",
         "color": "green"
       },
       {
         "icon": "local_hospital",
-        "count": 6,
+        // "count": 6,
         "title": "Hospital Branches",
         "color": "black"
       },
 
       {
         "icon": "medication",
-        "count": 6,
+        // "count": 6,
         "title": "Medicines",
         "color": "black"
       },
      
       {
         "icon": "people_outline",
-        "count": 8,
+        // "count": 8,
         "title": "Staff",
         "color": "black"
       },

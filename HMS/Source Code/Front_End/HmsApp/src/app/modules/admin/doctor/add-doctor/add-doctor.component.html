@@ -14,7 +14,7 @@
         <form class="register-form" [formGroup]="fgAddDoctor">
             <mat-card-content>
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="First Name" formControlName="firstname" required appLimitTo=13
+                    <input matInput placeholder="First Name" formControlName="name" appOnlyAlphabets required appLimitTo=13
                         appSpecialCharacters>
                 </mat-form-field>
 
@@ -27,7 +27,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="City" formControlName="city" required appSpecialCharacters>
+                    <input matInput placeholder="City" formControlName="city" appOnlyAlphabets required appSpecialCharacters>
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
@@ -35,7 +35,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="field-full-width">
-                    <input matInput placeholder="Phone No" formControlName="phoneno">
+                    <input matInput placeholder="Phone No" maxlength="10" appOnlyNumeric required formControlName="phone">
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="field-full-width">

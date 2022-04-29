@@ -20,10 +20,19 @@ import { ListTreatmentComponent } from "./treatment/list-treatment/list-treatmen
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddPatientComponent } from './patient/add-patient/add-patient.component';
 import { ListPatientComponent } from './patient/list-patient/list-patient.component';
-import { OperativeRoomComponent } from './operative-room/operative-room.component';
+
 import { EditDoctorComponent } from './doctor/edit-doctor/edit-doctor.component';
 import { EditHospitalBranchComponent } from './hospital-branch/edit-hospital-branch/edit-hospital-branch.component';
 import { EditPatientComponent } from './patient/edit-patient/edit-patient.component';
+import { AddOperativeComponent } from './operative-room-type/add-operative/add-operative.component';
+import { EditOperativeComponent } from './operative-room-type/edit-operative/edit-operative.component';
+import { ListOperativeComponent } from './operative-room-type/list-operative/list-operative.component';
+import { EditTreatmentComponent } from './treatment/edit-treatment/edit-treatment.component';
+import { EditRoomTypeComponent } from './room-type/edit-room-type/edit-room-type.component';
+import { AddSpecializationComponent } from './specialization/add-specialization/add-specialization.component';
+import { ListSpecializationComponent } from './specialization/list-specialization/list-specialization.component';
+import { EditSpecializationComponent } from './specialization/edit-specialization/edit-specialization.component';
+import { EditMedicineComponent } from './medicine/edit-medicine/edit-medicine.component';
 
 
 @NgModule({
@@ -47,10 +56,19 @@ import { EditPatientComponent } from './patient/edit-patient/edit-patient.compon
     AdminHomeComponent,
     AddPatientComponent,
     ListPatientComponent,
-    OperativeRoomComponent,
+
     EditDoctorComponent,
     EditHospitalBranchComponent,
-    EditPatientComponent
+    EditPatientComponent,
+    AddOperativeComponent,
+    EditOperativeComponent,
+    ListOperativeComponent,
+    EditTreatmentComponent,
+    EditRoomTypeComponent,
+    AddSpecializationComponent,
+    ListSpecializationComponent,
+    EditSpecializationComponent,
+    EditMedicineComponent
   ],
   imports: [
     CommonModule,
