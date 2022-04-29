@@ -52,7 +52,7 @@ export class AddAppointmentMedicineComponent implements OnInit {
       appointmentId: ['', Validators.required],
       apptMedicineId: [''],
       medicineId: ['', Validators.required],
-      limits: ['', Validators.required],
+      limit: ['', Validators.required],
     });
   }
 
@@ -64,7 +64,7 @@ export class AddAppointmentMedicineComponent implements OnInit {
       this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
     } else {
       const fgValue = JSON.parse(JSON.stringify(this.fgAddAppointment.value));
-      fgValue.limits=+fgValue.limits;
+      fgValue.limit=+fgValue.limit;
       console.log('data is  ' + fgValue);
       this.callCreateAppointmentApi(fgValue);
     }

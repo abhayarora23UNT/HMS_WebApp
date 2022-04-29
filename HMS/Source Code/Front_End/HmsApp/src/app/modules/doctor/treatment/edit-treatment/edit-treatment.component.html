@@ -15,7 +15,7 @@
             <mat-card-content>
                 <mat-form-field class="field-full-width">
                     <mat-label>Treatment Id</mat-label>
-                    <mat-select formControlName="treatmentId" required>
+                    <mat-select formControlName="treatmentId" required > 
                         <mat-option [value]="data.TreatmentId" *ngFor="let data of treatmentIdList">{{data.Name}}
                         </mat-option>
                     </mat-select>

@@ -2,7 +2,7 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
-import { Constants, ModuleConstants } from 'src/app/core/constants/constants';
+import { Constants } from 'src/app/core/constants/constants';
 import { Messages } from 'src/app/core/messages/messages';
 import { AdminDoctorService} from 'src/app/core/services/admin/admin-doctor.service';
 import { LookupService } from 'src/app/core/services/lookups/lookups.service';
@@ -28,6 +28,9 @@ export class AddDoctorComponent implements OnInit, OnDestroy {
     
    }
 
+  /**
+   * Method called on page Init
+   */ 
   ngOnInit(): void {
   }
 
@@ -37,10 +40,15 @@ export class AddDoctorComponent implements OnInit, OnDestroy {
    ngOnDestroy(): void {
     this.onDestroy$.next();
   }
+
+  /**
+   * Method to create form group
+   */
   createFormGroup() {
     this.fgAddDoctor = this.formBuilder.group({
       name: ['', Validators.required],
       address1: ['', Validators.required],
+      address2:[''],
       city: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
@@ -48,6 +56,10 @@ export class AddDoctorComponent implements OnInit, OnDestroy {
       gender: ['', Validators.required],
     });
   }
+
+  /**
+   * Method to check validation,when add button is clicked
+   */
   createDoctor(){
     if (this.fgAddDoctor.status == Constants.FormInvalid) {
       this.toastService.errorMessage(Messages.Mandatory_Fields_Validation);
@@ -82,11 +94,14 @@ export class AddDoctorComponent implements OnInit, OnDestroy {
           this.isDataLoading = false;
         },
         complete: () => {
-         
           this.isDataLoading = false;
         }
       });
   }
+
+  /**
+   * Method to navigate to doctor list screen
+   */
   routetoListDoctorScreen() {
     this.router.navigate(['admin/dashboard/listDoctor']);
   }

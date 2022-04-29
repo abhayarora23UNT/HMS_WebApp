@@ -56,6 +56,7 @@ export class EditDoctorComponent implements OnInit , OnDestroy{
       this.fgEditDoctor = this.formBuilder.group({
         name: ['', Validators.required],
         address1: ['', Validators.required],
+        address2: [''],
         city: ['', Validators.required],
         email: ['', Validators.required],
         phone: ['', Validators.required],

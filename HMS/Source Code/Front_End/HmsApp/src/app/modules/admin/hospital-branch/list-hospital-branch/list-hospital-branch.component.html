@@ -19,36 +19,36 @@
 
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
-                    <th  mat-header-cell *matHeaderCellDef> Name</th>
+                    <th class="w-15" mat-header-cell *matHeaderCellDef> Name</th>
                     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
                 </ng-container>
 
                 <!-- Designation -->
                 <ng-container matColumnDef="address1">
-                    <th mat-header-cell *matHeaderCellDef> Address</th>
+                    <th class="w-15" mat-header-cell *matHeaderCellDef> Address</th>
                     <td mat-cell *matCellDef="let element"> {{element.address1}} </td>
                 </ng-container>
 
                 <!-- Mobile no -->
                 <ng-container matColumnDef="phone1">
-                    <th  mat-header-cell *matHeaderCellDef>Phone No</th>
+                    <th  class="w-15" mat-header-cell *matHeaderCellDef>Phone No</th>
                     <td mat-cell *matCellDef="let element"> {{element.phone1}} </td>
                 </ng-container>
 
 
                 <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <th class="w-20" mat-header-cell *matHeaderCellDef> Email </th>
                     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="city">
-                    <th class="w-20" mat-header-cell *matHeaderCellDef> City </th>
+                    <th class="w-15" mat-header-cell *matHeaderCellDef> City </th>
                     <td mat-cell *matCellDef="let element"> {{element.city}} </td>
                 </ng-container>
                 <!-- Action Column -->
                  <ng-container matColumnDef="action">
-                    <th class="w-20" mat-header-cell *matHeaderCellDef> Action </th>
-                    <td mat-cell *matCellDef="let element" class="action-link action-hover">
+                    <th class="w-20 txt-center" mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element" class="action-link action-hover  txt-center">
                         <a>
                             <mat-icon style="color:#002B5C" title="Edit Appointment" (click)="editAppointment(element)">
                                 edit
