@@ -1,9 +1,0 @@
-Deliverables Locations
-
-Directory\Folder - HMS\Deliverables
-
-Deliverable 1 - HMS\Deliverables\Deliverable1
-
-MOM Locations - HMS\MOM\Deliverable-1_MOM
-
-Planning Docs - HMS\Planning\Design
